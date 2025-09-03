@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Optional: global resets if you want them */
+:root {
+  font-family: system-ui, sans-serif;
+}
