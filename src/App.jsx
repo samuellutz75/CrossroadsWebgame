@@ -30,12 +30,16 @@ const categories = [
   },
 ];
 
+const UNIFIER = "FLY";
+
 export default function CrossroadsGame() {
   const [selected, setSelected] = useState([]);
   const [solved, setSolved] = useState([]);
   const [categoryInputs, setCategoryInputs] = useState(Array(4).fill(""));
   const [revealedCategories, setRevealedCategories] = useState(Array(4).fill(false));
   const [flash, setFlash] = useState(null);
+  const [unifierGuess, setUnifierGuess] = useState("");
+  const [gameWon, setGameWon] = useState(false);
 
   const toggleSelect = (term) => {
     if (selected.includes(term)) {
@@ -87,6 +91,7 @@ export default function CrossroadsGame() {
   };
 
   return (
+    
     <div className="grid grid-cols-2 gap-4 h-screen p-4">
       {/* Left Column */}
       <div className="grid grid-rows-[auto,1fr] gap-4">
