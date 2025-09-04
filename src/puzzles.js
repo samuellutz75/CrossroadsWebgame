@@ -18,6 +18,15 @@ const puzzles = [
     ],
   },
   {
+    unifier: "Bat",
+    categories: [
+      { name: "___man Hero", terms: ["Super", "Iron", "Aqua"] },
+      { name: "Baseball Equipment", terms: ["Glove", "Base", "Helmet"] },
+      { name: "Spooky Animals", terms: ["Spider", "Owl", "Cat"] },
+      { name: "Might be Upside Down", terms: ["Cake", "Australia", "Stranger Things"] },
+    ],
+  },
+  {
     unifier: "Donut",
     categories: [
       { name: "Fried Pastries", terms: ["Beignet", "Churro", "Fritter"] },
