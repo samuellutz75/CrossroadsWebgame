@@ -1,173 +1,187 @@
 import { useState } from "react";
+import puzzles from "./puzzles";
 
-const initialTerms = [
-  "ANT", "BUTTON", "DOPE",
-  "GROUND", "LIT", "POCKET",
-  "RAD", "ROACH", "SEAM",
-  "STRIKE", "TAG", "WASP"
-];
-
-const categories = [
-  {
-    name: "Household Pests",
-    terms: ["ANT", "ROACH", "WASP"],
-    keywords: ["BUG", "BUGS", "INSECT", "INSECTS", "PEST", "PESTS"],
-  },
-  {
-    name: "Slang for Cool",
-    terms: ["DOPE", "LIT", "RAD"],
-    keywords: ["SLANG", "COOL", "SYNONYM", "SYNONYMS"],
-  },
-  {
-    name: "Parts of Pants",
-    terms: ["BUTTON", "POCKET", "SEAM"],
-    keywords: ["CLOTHING", "CLOTHES", "SHIRT", "SHIRTS", "PANT", "PANTS"],
-  },
-  {
-    name: "Outs in Baseball",
-    terms: ["GROUND", "STRIKE", "TAG"],
-    keywords: ["SPORT", "SPORTS", "BASEBALL", "SOFTBALL", "OUT", "OUTS"],
-  },
-];
-
-const UNIFIER = "FLY";
-
-export default function CrossroadsGame() {
+export default function App() {
+  const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
   const [selected, setSelected] = useState([]);
-  const [solved, setSolved] = useState([]);
-  const [categoryInputs, setCategoryInputs] = useState(Array(4).fill(""));
-  const [revealedCategories, setRevealedCategories] = useState(Array(4).fill(false));
-  const [flash, setFlash] = useState(null);
+  const [solvedCategories, setSolvedCategories] = useState([]);
+  const [disabledTerms, setDisabledTerms] = useState([]);
   const [unifierGuess, setUnifierGuess] = useState("");
-  const [gameWon, setGameWon] = useState(false);
+  const [unifierSolved, setUnifierSolved] = useState(false);
 
-  const toggleSelect = (term) => {
+  const puzzle = puzzles[currentPuzzleIndex];
+  const allTerms = puzzle?.categories
+    ? puzzle.categories.flatMap((c) => c.terms).sort()
+    : [];
+
+  function toggleSelect(term) {
+    if (disabledTerms.includes(term)) return;
     if (selected.includes(term)) {
       setSelected(selected.filter((t) => t !== term));
     } else if (selected.length < 3) {
       setSelected([...selected, term]);
     }
-  };
+  }
 
-  const handleSubmit = () => {
-    if (selected.length !== 3) return;
+  function handleSubmit() {
+    if (!puzzle || selected.length !== 3) return;
 
-    const foundCategory = categories.find((cat) =>
-      cat.terms.every((t) => selected.includes(t))
+    const match = puzzle.categories.find(
+      (cat) => cat.terms.every((t) => selected.includes(t))
     );
 
-    if (foundCategory) {
-      setSolved([...solved, ...foundCategory.terms]);
-      setFlash("correct");
-      const index = categories.indexOf(foundCategory);
-      setRevealedCategories((prev) => {
-        const copy = [...prev];
-        copy[index] = true; // enable input
-        return copy;
-      });
-    } else {
-      setFlash("wrong");
+    if (match && !solvedCategories.includes(match.name)) {
+      setSolvedCategories([...solvedCategories, match.name]);
+      setDisabledTerms([...disabledTerms, ...match.terms]);
     }
 
     setSelected([]);
-    setTimeout(() => setFlash(null), 800);
-  };
+  }
 
-  const handleCategoryInput = (value, index) => {
-    setCategoryInputs((prev) => {
-      const copy = [...prev];
-      copy[index] = value;
-      return copy;
-    });
-
-    const cat = categories[index];
-    if (cat.keywords.includes(value.trim().toUpperCase())) {
-      setRevealedCategories((prev) => {
-        const copy = [...prev];
-        copy[index] = cat.name; // reveal true category
-        return copy;
-      });
+  function handleUnifierSubmit(e) {
+    e.preventDefault();
+    if (
+      puzzle &&
+      unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()
+    ) {
+      setUnifierSolved(true);
     }
-  };
+  }
+
+  function resetPuzzle(index) {
+    setCurrentPuzzleIndex(index);
+    setSelected([]);
+    setSolvedCategories([]);
+    setDisabledTerms([]);
+    setUnifierGuess("");
+    setUnifierSolved(false);
+  }
+
+  if (!puzzle) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600">Loading puzzle…</p>
+      </div>
+    );
+  }
 
   return (
-    
-    <div className="grid grid-cols-2 gap-4 h-screen p-4">
-      {/* Left Column */}
-      <div className="grid grid-rows-[auto,1fr] gap-4">
-        {/* Submit button */}
-        <button
-          onClick={handleSubmit}
-          className={`p-2 rounded font-bold text-white ${
-            flash === "correct"
-              ? "bg-green-500"
-              : flash === "wrong"
-              ? "bg-red-500"
-              : "bg-blue-500"
-          }`}
-        >
-          Submit
-        </button>
-
-        {/* 3x4 Grid */}
-        <div className="grid grid-cols-3 grid-rows-4 gap-2">
-          {initialTerms.map((term, i) => (
+    <div className="min-h-screen p-4 bg-gray-100">
+      {/* Responsive container */}
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Section 1: Navigator + Unifier + Grid */}
+        <div className="flex-1 space-y-4">
+          {/* Puzzle Navigator */}
+          <div className="flex items-center justify-between bg-white p-2 rounded shadow">
             <button
-              key={i}
-              disabled={solved.includes(term)}
-              onClick={() => toggleSelect(term)}
-              className={`p-4 border rounded text-lg font-semibold ${
-                solved.includes(term)
-                  ? "bg-gray-300 text-gray-500"
-                  : selected.includes(term)
-                  ? "bg-yellow-300"
-                  : "bg-white"
-              }`}
+              onClick={() => resetPuzzle(currentPuzzleIndex - 1)}
+              disabled={currentPuzzleIndex === 0}
+              className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
             >
-              {term}
+              Previous
             </button>
-          ))}
-        </div>
-      </div>
+            <span>
+              Puzzle {currentPuzzleIndex + 1} of {puzzles.length}
+            </span>
+            <button
+              onClick={() => resetPuzzle(currentPuzzleIndex + 1)}
+              disabled={currentPuzzleIndex === puzzles.length - 1}
+              className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
 
-      {/* Right Column */}
-      <div className="grid grid-rows-4 gap-4">
-        {categories.map((cat, i) => (
-          <div key={i} className="grid grid-rows-2 gap-2">
-            {/* Category input row */}
+          {/* Unifier input */}
+          <form
+            onSubmit={handleUnifierSubmit}
+            className="bg-white p-3 rounded shadow"
+          >
+            <label className="block mb-2 font-semibold">Unifier:</label>
             <div className="flex gap-2">
               <input
                 type="text"
-                value={revealedCategories[i] === true ? categoryInputs[i] : revealedCategories[i] || ""}
-                onChange={(e) => handleCategoryInput(e.target.value, i)}
-                disabled={!revealedCategories[i] || typeof revealedCategories[i] !== "boolean"}
-                placeholder={revealedCategories[i] ? "Enter a keyword..." : ""}
-                className="border rounded p-2 flex-1"
+                value={unifierGuess}
+                onChange={(e) => setUnifierGuess(e.target.value)}
+                placeholder="Enter unifier..."
+                className="flex-1 border px-3 py-2 rounded"
+                disabled={unifierSolved}
               />
-              <input
-                type="text"
-                value="Hint"
-                disabled
-                className="border rounded p-2 w-24 bg-gray-100 text-gray-500"
-              />
+              <button
+                type="submit"
+                disabled={unifierSolved}
+                className="px-3 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+              >
+                Submit
+              </button>
+            </div>
+            {unifierSolved && (
+              <p className="mt-2 text-green-600 font-bold">
+                Correct! The unifier is {puzzle.unifier}.
+              </p>
+            )}
+          </form>
+
+          {/* 3×4 Button Grid */}
+          <div className="bg-white p-3 rounded shadow">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {allTerms.map((term) => {
+                const isSelected = selected.includes(term);
+                const isDisabled = disabledTerms.includes(term);
+                return (
+                  <button
+                    key={term}
+                    onClick={() => toggleSelect(term)}
+                    disabled={isDisabled}
+                    className={`h-20 rounded shadow text-center flex items-center justify-center border 
+                      ${
+                        isDisabled
+                          ? "bg-gray-300 text-gray-500"
+                          : isSelected
+                          ? "bg-blue-400 text-white"
+                          : "bg-white"
+                      }`}
+                  >
+                    {term}
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Answered terms row */}
-            <div className="flex gap-2">
-              {cat.terms.map((term, j) => (
-                <button
-                  key={j}
-                  disabled
-                  className={`flex-1 p-2 border rounded ${
-                    solved.includes(term) ? "bg-green-200" : "bg-gray-100"
-                  }`}
-                >
-                  {solved.includes(term) ? term : ""}
-                </button>
-              ))}
+            {/* Submit button */}
+            <div className="mt-4 flex justify-center">
+              <button
+                onClick={handleSubmit}
+                disabled={selected.length !== 3}
+                className="px-4 py-2 bg-green-500 text-white rounded disabled:opacity-50"
+              >
+                Submit Selection
+              </button>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Section 2: Categories */}
+        <div className="flex-1 space-y-4">
+          {puzzle.categories.map((cat, idx) => (
+            <div key={idx} className="bg-white p-3 rounded shadow">
+              <div className="font-bold mb-2">
+                {solvedCategories.includes(cat.name) ? cat.name : "???"}
+              </div>
+              <div className="flex gap-2">
+                {cat.terms.map((term) => (
+                  <button
+                    key={term}
+                    className="flex-1 h-12 bg-gray-200 rounded disabled:opacity-50"
+                    disabled
+                  >
+                    {disabledTerms.includes(term) ? term : "?"}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
