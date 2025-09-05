@@ -83,6 +83,23 @@ export default function App() {
             <span>
               Puzzle {currentPuzzleIndex + 1} of {puzzles.length}
             </span>
+             {/* Jump-to box */}
+            <input
+              type="number"
+              min="1"
+              max={puzzles.length}
+              placeholder="Search Puzzle by Number"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const num = parseInt(e.target.value, 10);
+                  if (num >= 1 && num <= puzzles.length) {
+                    resetPuzzle(num - 1);
+                    e.target.value = "";
+                  }
+                }
+              }}
+              className="w-60 border px-2 py-1 rounded text-center"
+            />
             <button
               onClick={() => resetPuzzle(currentPuzzleIndex + 1)}
               disabled={currentPuzzleIndex === puzzles.length - 1}
@@ -142,7 +159,7 @@ export default function App() {
                           : "bg-white"
                       }`}
                   >
-                    {term}
+                    {term.toUpperCase()}
                   </button>
                 );
               })}
@@ -175,7 +192,7 @@ export default function App() {
                     className="flex-1 h-12 bg-gray-200 rounded disabled:opacity-50"
                     disabled
                   >
-                    {disabledTerms.includes(term) ? term : "?"}
+                    {disabledTerms.includes(term) ? term.toUpperCase() : "?"}
                   </button>
                 ))}
               </div>
