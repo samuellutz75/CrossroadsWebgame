@@ -7,6 +7,7 @@ export default function App() {
   const [solvedCategories, setSolvedCategories] = useState([]);
   const [disabledTerms, setDisabledTerms] = useState([]);
   const [unifierGuess, setUnifierGuess] = useState("");
+  const [flashWrong, setFlashWrong] = useState(false);
   const [unifierSolved, setUnifierSolved] = useState(false);
 
   const puzzle = puzzles[currentPuzzleIndex];
@@ -39,14 +40,16 @@ export default function App() {
   }
 
   function handleUnifierSubmit(e) {
-    e.preventDefault();
-    if (
-      puzzle &&
-      unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()
-    ) {
-      setUnifierSolved(true);
-    }
+  e.preventDefault();
+  if (unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()) {
+    setUnifierSolved(true);
+    setFlashWrong(false);
+  } else {
+    setFlashWrong(true);
+    setTimeout(() => setFlashWrong(false), 500); // flash for 0.5s
   }
+}
+
 
   function resetPuzzle(index) {
     setCurrentPuzzleIndex(index);
@@ -110,34 +113,38 @@ export default function App() {
           </div>
 
           {/* Unifier input */}
-          <form
-            onSubmit={handleUnifierSubmit}
-            className="bg-white p-3 rounded shadow"
-          >
-            <label className="block mb-2 font-semibold">Unifier:</label>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={unifierGuess}
-                onChange={(e) => setUnifierGuess(e.target.value)}
-                placeholder="Enter unifier..."
-                className="flex-1 border px-3 py-2 rounded"
-                disabled={unifierSolved}
-              />
-              <button
-                type="submit"
-                disabled={unifierSolved}
-                className="px-3 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
-              >
-                Submit
-              </button>
-            </div>
-            {unifierSolved && (
-              <p className="mt-2 text-green-600 font-bold">
-                Correct! The unifier is {puzzle.unifier}.
-              </p>
-            )}
-          </form>
+<form
+  onSubmit={handleUnifierSubmit}
+  className="bg-white p-3 rounded shadow"
+>
+  <label className="block mb-2 font-semibold">Unifier:</label>
+  <div className="flex gap-2">
+    <input
+      type="text"
+      value={unifierGuess}
+      onChange={(e) => setUnifierGuess(e.target.value)}
+      placeholder="Enter unifier..."
+      className={`flex-1 border px-3 py-2 rounded transition-colors duration-300 
+        ${unifierSolved ? "border-green-500" : ""} 
+        ${unifierGuess && !unifierSolved && flashWrong ? "border-red-500 bg-red-100" : ""}`}
+      disabled={unifierSolved}
+    />
+    <button
+      type="submit"
+      disabled={unifierSolved}
+      className="px-3 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+    >
+      Submit
+    </button>
+  </div>
+  {unifierSolved && (
+    <p className="mt-2 text-green-600 font-bold">
+      Correct! The unifier is {puzzle.unifier}.
+    </p>
+  )}
+</form>
+
+
 
           {/* 3×4 Button Grid */}
           <div className="bg-white p-3 rounded shadow">
