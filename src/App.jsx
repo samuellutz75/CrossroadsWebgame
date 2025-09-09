@@ -9,6 +9,9 @@ export default function App() {
   const [unifierGuess, setUnifierGuess] = useState("");
   const [flashWrong, setFlashWrong] = useState(false);
   const [unifierSolved, setUnifierSolved] = useState(false);
+  const [guessHistory, setGuessHistory] = useState([]);
+  const [copySuccess, setCopySuccess] = useState(false);
+
 
   const puzzle = puzzles[currentPuzzleIndex];
   const allTerms = puzzle?.categories
@@ -34,21 +37,43 @@ export default function App() {
     if (match && !solvedCategories.includes(match.name)) {
       setSolvedCategories([...solvedCategories, match.name]);
       setDisabledTerms([...disabledTerms, ...match.terms]);
+      const categoryIndex = puzzle.categories.findIndex(
+        (c) => c.name === match.name
+      ) + 1;
+
+      setGuessHistory((prevHistory) => [...prevHistory, `${categoryIndex}️⃣`]);
+    } else {
+      setGuessHistory((prevHistory) => [...prevHistory, "⬜"]);
     }
+    
 
     setSelected([]);
   }
 
   function handleUnifierSubmit(e) {
-  e.preventDefault();
-  if (unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()) {
-    setUnifierSolved(true);
-    setFlashWrong(false);
-  } else {
-    setFlashWrong(true);
-    setTimeout(() => setFlashWrong(false), 500); // flash for 0.5s
+    e.preventDefault();
+    if (unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()) {
+      setUnifierSolved(true);
+      setFlashWrong(false);
+      setGuessHistory([...guessHistory, "✅"]); // log success
+    } else {
+      setFlashWrong(true);
+      setTimeout(() => setFlashWrong(false), 500); // flash for 0.5s
+      setGuessHistory([...guessHistory, "⚪"]); // log failure
+    }
   }
-}
+
+  async function handleShare() {
+    const timeline = guessHistory.join("");
+    const text = `Crossroads #${currentPuzzleIndex + 1}: ${timeline}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000); // reset after 2s
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  }
 
 
   function resetPuzzle(index) {
@@ -58,6 +83,7 @@ export default function App() {
     setDisabledTerms([]);
     setUnifierGuess("");
     setUnifierSolved(false);
+    setGuessHistory([]);   // reset timeline
   }
 
   if (!puzzle) {
@@ -113,38 +139,50 @@ export default function App() {
           </div>
 
           {/* Unifier input */}
-<form
-  onSubmit={handleUnifierSubmit}
-  className="bg-white p-3 rounded shadow"
->
-  <label className="block mb-2 font-semibold">Unifier:</label>
-  <div className="flex gap-2">
-    <input
-      type="text"
-      value={unifierGuess}
-      onChange={(e) => setUnifierGuess(e.target.value)}
-      placeholder="Enter unifier..."
-      className={`flex-1 border px-3 py-2 rounded transition-colors duration-300 
-        ${unifierSolved ? "border-green-500" : ""} 
-        ${unifierGuess && !unifierSolved && flashWrong ? "border-red-500 bg-red-100" : ""}`}
-      disabled={unifierSolved}
-    />
-    <button
-      type="submit"
-      disabled={unifierSolved}
-      className="px-3 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
-    >
-      Submit
-    </button>
-  </div>
-  {unifierSolved && (
-    <p className="mt-2 text-green-600 font-bold">
-      Correct! The unifier is {puzzle.unifier}.
-    </p>
-  )}
-</form>
+          <form
+            onSubmit={handleUnifierSubmit}
+            className="bg-white p-3 rounded shadow"
+          >
+            <label className="block mb-2 font-semibold">Unifier:</label>
+            <div className="flex gap-2">
+              <input
+              type="text"
+              value={unifierGuess}
+              onChange={(e) => setUnifierGuess(e.target.value)}
+              placeholder="Enter unifier..."
+              className={`flex-1 border px-3 py-2 rounded transition-colors duration-300 
+                ${unifierSolved ? "border-green-500" : ""} 
+                ${unifierGuess && !unifierSolved && flashWrong ? "border-red-500 bg-red-100" : ""}`}
+              disabled={unifierSolved}
+              />
+              <button
+                type="submit"
+                disabled={unifierSolved}
+                className="px-3 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                onClick={handleShare}
+                disabled={!(unifierSolved && solvedCategories.length === 4)}
+                className="px-3 py-2 bg-green-500 text-white rounded disabled:opacity-50"
+              >
+                Share
+              </button>
 
-
+            </div>
+            {unifierSolved && (
+              <>
+                <p className="mt-2 text-green-600 font-bold">
+                  Correct! The Unifier is {puzzle.unifier}.
+                </p>
+                {copySuccess && (
+                  <p className="mt-2 text-green-600 font-bold">Result Copied!</p>
+                )}
+              </>
+            )}
+          </form>
 
           {/* 3×4 Button Grid */}
           <div className="bg-white p-3 rounded shadow">
