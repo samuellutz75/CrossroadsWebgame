@@ -8,6 +8,7 @@ export default function App() {
   const [disabledTerms, setDisabledTerms] = useState([]);
   const [unifierGuess, setUnifierGuess] = useState("");
   const [flashWrong, setFlashWrong] = useState(false);
+  const [wrongSelection, setWrongSelection] = useState([]);
   const [unifierSolved, setUnifierSolved] = useState(false);
   const [guessHistory, setGuessHistory] = useState([]);
   const [copySuccess, setCopySuccess] = useState(false);
@@ -43,6 +44,8 @@ export default function App() {
 
       setGuessHistory((prevHistory) => [...prevHistory, `${categoryIndex}️⃣`]);
     } else {
+      setWrongSelection(selected);
+      setTimeout(() => setWrongSelection([]), 500);
       setGuessHistory((prevHistory) => [...prevHistory, "⬜"]);
     }
     
@@ -185,7 +188,7 @@ export default function App() {
           </form>
 
           {/* 3×4 Button Grid */}
-          <div className="bg-white p-3 rounded shadow">
+          <div className="bg-white p-3 rounded shadow ">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {allTerms.map((term) => {
                 const isSelected = selected.includes(term);
@@ -195,10 +198,12 @@ export default function App() {
                     key={term}
                     onClick={() => toggleSelect(term)}
                     disabled={isDisabled}
-                    className={`h-20 rounded shadow text-center flex items-center justify-center border 
+                    className={`h-20 rounded shadow text-center flex items-center justify-center border transition-colors duration-300
                       ${
                         isDisabled
                           ? "bg-gray-300 text-gray-500"
+                          : wrongSelection.includes(term)
+                          ? "bg-red-400 text-white"
                           : isSelected
                           ? "bg-blue-400 text-white"
                           : "bg-white"
