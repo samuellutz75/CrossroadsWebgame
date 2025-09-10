@@ -1,6 +1,17 @@
 import { useState } from "react";
 import puzzles from "./puzzles";
 
+// Disabled puzzle-style button for tutorial terms
+const TutorialButton = ({ label }) => (
+  <button
+    className="bg-gray-200 text-black font-bold py-2 px-4 rounded-lg shadow-md cursor-default opacity-70"
+    disabled
+  >
+    {label.toUpperCase()}
+  </button>
+);
+
+
 export default function App() {
   const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
   const [selected, setSelected] = useState([]);
@@ -12,8 +23,9 @@ export default function App() {
   const [unifierSolved, setUnifierSolved] = useState(false);
   const [guessHistory, setGuessHistory] = useState([]);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
 
-
+  
   const puzzle = puzzles[currentPuzzleIndex];
   const allTerms = puzzle?.categories
     ? puzzle.categories.flatMap((c) => c.terms).sort()
@@ -146,14 +158,16 @@ export default function App() {
             onSubmit={handleUnifierSubmit}
             className="bg-white p-3 rounded shadow"
           >
+            {/*
             <label className="block mb-2 font-semibold">Unifier:</label>
+            */}
             <div className="flex gap-2">
               <input
               type="text"
               value={unifierGuess}
               onChange={(e) => setUnifierGuess(e.target.value)}
-              placeholder="Enter unifier..."
-              className={`flex-1 border px-3 py-2 rounded transition-colors duration-300 
+              placeholder="Enter Unifier..."
+              className={`w-40 sm:w-120 border px-3 py-2 rounded transition-colors duration-300 
                 ${unifierSolved ? "border-green-500" : ""} 
                 ${unifierGuess && !unifierSolved && flashWrong ? "border-red-500 bg-red-100" : ""}`}
               disabled={unifierSolved}
@@ -169,7 +183,7 @@ export default function App() {
                 type="button"
                 onClick={handleShare}
                 disabled={!(unifierSolved && solvedCategories.length === 4)}
-                className="px-3 py-2 bg-green-500 text-white rounded disabled:opacity-50"
+                className="flex-1 px-3 py-2 bg-green-500 text-white rounded disabled:opacity-50"
               >
                 Share
               </button>
@@ -248,8 +262,151 @@ export default function App() {
               </div>
             </div>
           ))}
+        
+          <div className="mt-4 text-center">
+            <button
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onClick={() => setShowTutorial(true)}
+            >
+              Tutorial
+            </button>
+          </div>
         </div>
       </div>
+
+      {showTutorial && (
+        <div className="fixed inset-0 bg-white z-50 flex flex-col items-start p-6 overflow-y-auto">
+          <h1 className="text-2xl font-bold mb-4">Crossroads Tutorial</h1>
+            <p className="mb-4">
+              Crossroads is a linguistic puzzle game played with two key features: <b>Categories</b>, and the <b>Unifier</b>. 
+              To complete a Crossroads puzzle, the player must organize all 4 Categories, and identify the Unifier.
+            </p>
+
+            <h2 className="text-xl font-semibold mt-6 mb-2">Categories:</h2>
+            <p className="mb-4">
+              In each Crossroads puzzle, the player is given a bank of 12 Terms. Terms can be words, word fragments, names, titles, brands, phrases, acronyms, etc.
+            </p>
+
+            <p className="mb-2">Example Term Bank:</p>
+            <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+            <TutorialButton label="CRUSH" />
+            <TutorialButton label="HOME DEPOT" />
+            <TutorialButton label="JACK" />
+            <TutorialButton label="KING" />
+            <TutorialButton label="LOWE’S" />
+            <TutorialButton label="MENARDS" />
+            <TutorialButton label="MYSTIC" />
+            <TutorialButton label="NAIL" />
+            <TutorialButton label="QUEEN" />
+            <TutorialButton label="ROCK" />
+            <TutorialButton label="SPARK" />
+            <TutorialButton label="VALKYRIE" />
+            </div>
+
+          <p className="mb-4">
+            To complete the Categories section, the player must sort the Terms into Categories of 3 Terms each. 
+            The player must select 3 Terms they believe to share a Category and submit their guess. 
+            If correct, the selected Terms will be removed from the bank and the Category description will be revealed.
+          </p>
+
+          <p className="mb-2">Example Category:</p>
+          <p className="font-semibold">Playing Cards</p>
+          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+            <TutorialButton label="KING" />
+            <TutorialButton label="QUEEN" />
+            <TutorialButton label="JACK" />
+          </div>
+
+          <p className="mb-4">
+            All 4 Categories must be sorted to complete the section. More than 3 Terms may fit a Category’s description, 
+            but not all will be part of the correct selection. Each Crossroads puzzle has 1 unique solution in which all 
+            12 Terms are sorted into 4 Categories of 3 Terms each.
+          </p>
+
+          <p className="mb-2">Completed Category Section:</p>
+          <p className="font-semibold">Playing Cards</p>
+          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+            <TutorialButton label="KING" />
+            <TutorialButton label="QUEEN" />
+            <TutorialButton label="JACK" />
+          </div>
+
+          <p className="font-semibold">Hardware Store Brands</p>
+          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+            <TutorialButton label="HOME DEPOT" />
+            <TutorialButton label="LOWE’S" />
+            <TutorialButton label="MENARDS" />
+          </div>
+
+          <p className="font-semibold">Member of a WNBA Team</p>
+          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+           <TutorialButton label="MYSTIC" />
+           <TutorialButton label="SPARK" />
+           <TutorialButton label="VALKYRIE" />
+          </div>
+
+          <p className="font-semibold">To Do Well at Something</p>
+          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+           <TutorialButton label="NAIL" />
+           <TutorialButton label="CRUSH" />
+           <TutorialButton label="ROCK" />
+          </div>
+
+          <h2 className="text-xl font-semibold mt-6 mb-2">Unifier:</h2>
+          <p className="mb-4">
+            Each Crossroads puzzle is built around a single word called the Unifier. This word is not provided to the player. 
+            Instead, they must identify what word exhibits the following behavior: The Unifier fits all Category descriptions simultaneously. 
+            If the Unifier were provided as a Term, it could be rationally sorted into any of the 4 Categories.
+          </p>
+
+          <p className="mb-2">Unifier Example: <b>ACE</b></p>
+          <p>An Ace is a Playing Card</p>
+          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+            <TutorialButton label="KING" />
+            <TutorialButton label="QUEEN" />
+            <TutorialButton label="JACK" />
+            <TutorialButton label="ACE" />
+          </div>
+
+          <p>Ace Hardware is a Hardware Store Brand</p>
+          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+            <TutorialButton label="HOME DEPOT" />
+            <TutorialButton label="LOWE’S" />
+            <TutorialButton label="MENARDS" />
+            <TutorialButton label="ACE" />
+          </div>
+
+          <p>An Ace is a Member of the Las Vegas Aces WNBA Team</p>
+          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+            <TutorialButton label="MYSTIC" />
+            <TutorialButton label="SPARK" />
+            <TutorialButton label="VALKYRIE" />
+            <TutorialButton label="ACE" />
+          </div>
+
+          <p>To Ace something is to do well: “I aced that test!”</p>
+          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+            <TutorialButton label="NAIL" />
+            <TutorialButton label="CRUSH" />
+            <TutorialButton label="ROCK" />
+            <TutorialButton label="ACE" />
+          </div>
+
+          <p className="mb-6">
+            Once the player has sorted the Categories and identified the Unifier, they have completed the Crossroads puzzle. 
+            Although the Unifier is typically discovered last, Crossroads puzzles can be completed in any order. 
+            Upon completion, a SHARE button will enable the player to copy their score to their clipboard. 
+            The score features a timeline of correct and incorrect guesses.
+          </p>
+
+          <button
+            className="mt-6 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            onClick={() => setShowTutorial(false)}
+          >
+            Back to Game
+          </button>
+        </div>
+      )}
     </div>
   );
 }
