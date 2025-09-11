@@ -1,58 +1,49 @@
 const puzzles = [
-  {
-    unifier: "Fly",
-    categories: [
-      { name: "Household Pest", terms: ["Ant", "Roach", "Wasp"] },
-      { name: "Slang for Cool", terms: ["Dope", "Lit", "Rad"] },
-      { name: "Part of Pants", terms: ["Button", "Pocket", "Seam"] },
-      { name: "Outs in Baseball", terms: ["Ground", "Strike", "Tag"] },
-    ],
-  },
-  {
-    unifier: "Short",
-    categories: [
-      { name: "Synonyms for Small", terms: ["Little", "Petite", "Tiny"] },
-      { name: "Actions on the Stock Market", terms: ["Buy", "Hold", "Sell"] },
-      { name: "Forms of Media on YouTube", terms: ["Podcast", "Stream", "Video"] },
-      { name: "Legwear Minus the S", terms: ["Jean", "Pant", "Tight"] },
-    ],
-  },
-  {
-    unifier: "Bat",
-    categories: [
-      { name: "___man Hero", terms: ["Super", "Iron", "Aqua"] },
-      { name: "Baseball Equipment", terms: ["Glove", "Base", "Helmet"] },
-      { name: "Spooky Animals", terms: ["Spider", "Owl", "Cat"] },
-      { name: "Might be Upside Down", terms: ["Cake", "Australia", "Stranger Things"] },
-    ],
-  },
-  {
-    unifier: "Donut",
-    categories: [
-      { name: "Fried Pastries", terms: ["Beignet", "Churro", "Fritter"] },
-      { name: "Driving Tricks", terms: ["Burnout", "Drift", "Wheelie"] },
-      { name: "Hollow Cylindrical Shape", terms: ["Ring", "Torus", "Tube"] },
-      { name: "Used to Replace a Flat Tire", terms: ["Jack", "Reflector", "Wrench"] },
-    ],
-  },
-  {
-    unifier: "Palm",
-    categories: [
-      { name: "Types of Trees", terms: ["Oak", "Pine", "Maple"] },
-      { name: "Parts of a Hand", terms: ["Wrist", "Thumb", "Knuckle"] },
-      { name: "Things You Might Read", terms: ["Room", "Book", "Mind"] },
-      { name: "Days of the Week Modifier", terms: ["Ash", "Black", "Cyber"] },
-    ],
-  },
-  {
-    unifier: "Palm",
-    categories: [
-      { name: "Types of Trees", terms: ["Oak", "Pine", "Maple"] },
-      { name: "Parts of a Hand", terms: ["Wrist", "Thumb", "Knuckle"] },
-      { name: "Things You Might Read", terms: ["Room", "Book", "Mind"] },
-      { name: "Days of the Week Modifier", terms: ["Ash", "Black", "Cyber"] },
-    ],
-  },
+  	{
+    	unifier: "Fly",
+    	categories: [
+    	  { name: "Household Pest", terms: ["Ant", "Roach", "Wasp"] },
+    	  { name: "Slang for Cool", terms: ["Dope", "Lit", "Rad"] },
+    	  { name: "Part of Pants", terms: ["Button", "Pocket", "Seam"] },
+    	  { name: "Outs in Baseball", terms: ["Ground", "Strike", "Tag"] },
+    	],
+  	},
+  	{
+    	unifier: "Short",
+    	categories: [
+    	  { name: "Synonyms for Small", terms: ["Little", "Petite", "Tiny"] },
+    	  { name: "Actions on the Stock Market", terms: ["Buy", "Hold", "Sell"] },
+    	  { name: "Forms of Media on YouTube", terms: ["Podcast", "Stream", "Video"] },
+    	  { name: "Legwear Minus the S", terms: ["Jean", "Pant", "Tight"] },
+    	],
+  	},
+  	{
+    	unifier: "Bat",
+    	categories: [
+    	  { name: "___man Hero", terms: ["Super", "Iron", "Aqua"] },
+    	  { name: "Baseball Equipment", terms: ["Glove", "Base", "Helmet"] },
+    	  { name: "Spooky Animals", terms: ["Spider", "Owl", "Cat"] },
+    	  { name: "Might be Upside Down", terms: ["Cake", "Australia", "Stranger Things"] },
+    	],
+  	},
+  	{
+   	 unifier: "Donut",
+   	 categories: [
+   	   { name: "Fried Pastries", terms: ["Beignet", "Churro", "Fritter"] },
+   	   { name: "Driving Tricks", terms: ["Burnout", "Drift", "Wheelie"] },
+    	  { name: "Hollow Cylindrical Shape", terms: ["Ring", "Torus", "Tube"] },
+    	  { name: "Used to Replace a Flat Tire", terms: ["Jack", "Reflector", "Wrench"] },
+    	],
+  	},
+  	{
+    	unifier: "Palm",
+    	categories: [
+    	  { name: "Types of Trees", terms: ["Oak", "Pine", "Maple"] },
+    	  { name: "Parts of a Hand", terms: ["Wrist", "Thumb", "Knuckle"] },
+    	  { name: "Things You Might Read", terms: ["Room", "Book", "Mind"] },
+    	  { name: "Days of the Week Modifier", terms: ["Ash", "Black", "Cyber"] },
+    	],
+  	},
 	{
 		unifier: "Pan",
 		categories: [
@@ -553,7 +544,7 @@ const puzzles = [
 		categories: [
 			{ name: "Planets", terms: ["Neptune", "Jupiter", "Mars"] },
 			{ name: "Defunct Car Brands", terms: ["Mercury", "Scion", "Oldsmobile"] },
-			{ name: "NASA Rocket Families", terms: ["Atlas", "Thor", "Titan"] },
+			{ name: "NASA Rocket Families", terms: ["Atlas", "Delta", "Titan"] },
 			{ name: "Associated with Rings", terms: ["Boxing", "Hobbit", "Bell"] },
 		],
 	},
@@ -584,7 +575,6 @@ const puzzles = [
 			{ name: "Fiction Featuring Vampires", terms: ["Blade", "Buffy", "Sinners"] },
 		],
 	},
-
   
 ];
 export default puzzles;

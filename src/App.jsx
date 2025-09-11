@@ -13,7 +13,16 @@ const TutorialButton = ({ label }) => (
 
 
 export default function App() {
-  const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
+  // DAILY PUZZLE RELEASE SYSTEM
+const startDate = new Date("2025-07-01"); // <-- set your chosen start date
+const today = new Date();
+const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+
+// Only show as many puzzles as days have passed
+const availablePuzzles = puzzles.slice(0, Math.min(daysSinceStart, puzzles.length));
+
+const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.length - 1);
+
   const [selected, setSelected] = useState([]);
   const [solvedCategories, setSolvedCategories] = useState([]);
   const [disabledTerms, setDisabledTerms] = useState([]);
@@ -26,7 +35,7 @@ export default function App() {
   const [showTutorial, setShowTutorial] = useState(false);
 
   
-  const puzzle = puzzles[currentPuzzleIndex];
+  const puzzle = availablePuzzles[currentPuzzleIndex];
   const allTerms = puzzle?.categories
     ? puzzle.categories.flatMap((c) => c.terms).sort()
     : [];
@@ -116,42 +125,51 @@ export default function App() {
         {/* Section 1: Navigator + Unifier + Grid */}
         <div className="flex-1 space-y-4">
           {/* Puzzle Navigator */}
-          <div className="flex items-center justify-between bg-white p-2 rounded shadow">
-            <button
-              onClick={() => resetPuzzle(currentPuzzleIndex - 1)}
-              disabled={currentPuzzleIndex === 0}
-              className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-            >
-              Previous
-            </button>
-            <span>
-              Puzzle {currentPuzzleIndex + 1} of {puzzles.length}
-            </span>
-             {/* Jump-to box */}
-            <input
-              type="number"
-              min="1"
-              max={puzzles.length}
-              placeholder="Search Puzzle by Number"
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  const num = parseInt(e.target.value, 10);
-                  if (num >= 1 && num <= puzzles.length) {
-                    resetPuzzle(num - 1);
-                    e.target.value = "";
-                  }
-                }
-              }}
-              className="w-60 border px-2 py-1 rounded text-center"
-            />
-            <button
-              onClick={() => resetPuzzle(currentPuzzleIndex + 1)}
-              disabled={currentPuzzleIndex === puzzles.length - 1}
-              className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-            >
-              Next
-            </button>
-          </div>
+          {/* HEADER */}
+<div className="bg-white p-2 rounded shadow">
+  {/* Row 1: Title + Release Date */}
+  <div className="text-center mb-2">
+    <p className="text-lg font-bold">
+      Crossroads Puzzle {currentPuzzleIndex + 1} of {availablePuzzles.length}
+    </p>
+    <p className="text-sm text-gray-600">
+      Released: {new Date(startDate.getTime() + (currentPuzzleIndex+1) * 24 * 60 * 60 * 1000).toLocaleDateString()}
+    </p>
+  </div>
+
+  {/* Row 2: Navigation */}
+  <div className="flex items-center justify-center gap-2">
+    <button
+      onClick={() => setCurrentPuzzleIndex(Math.max(currentPuzzleIndex - 1, 0))}
+      className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
+    >
+      Previous
+    </button>
+
+    <input
+      type="number"
+      placeholder="Go to #"
+      className="w-30 px-2 py-1 border rounded text-center"
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          const value = parseInt(e.target.value, 10) - 1;
+          if (value >= 0 && value < availablePuzzles.length) {
+            setCurrentPuzzleIndex(value);
+            e.target.value = "";
+          }
+        }
+      }}
+    />
+
+    <button
+      onClick={() => setCurrentPuzzleIndex(Math.min(currentPuzzleIndex + 1, availablePuzzles.length - 1))}
+      className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
+    >
+      Next
+    </button>
+  </div>
+</div>
+
 
           {/* Unifier input */}
           <form
