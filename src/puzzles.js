@@ -157,7 +157,7 @@ const puzzles = [
 		categories: [
 			{ name: "Life-Ending", terms: ["Fatal", "Lethal", "Mortal"] },
 			{ name: "Parts of an Airport", terms: ["Tarmac", "Gate", "Hangar"] },
-			{ name: "System Interaction ", terms: ["Console", "Interface", "Module"] },
+			{ name: "System Interaction Point", terms: ["Console", "Interface", "Controller"] },
 			{ name: "Transportation Stops", terms: ["Station", "Depot", "Platform"] },
 		],
 	},

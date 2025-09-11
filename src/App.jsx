@@ -33,6 +33,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   const [guessHistory, setGuessHistory] = useState([]);
   const [copySuccess, setCopySuccess] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   
   const puzzle = availablePuzzles[currentPuzzleIndex];
@@ -281,14 +282,25 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             </div>
           ))}
         
-          <div className="mt-4 text-center">
+          {/* FOOTER MENU */}
+          <div className="mt-6 flex justify-center gap-4">
+            {/* Tutorial Button */}
             <button
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
               onClick={() => setShowTutorial(true)}
             >
               Tutorial
             </button>
+
+            {/* About Button */}
+            <button
+              className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              onClick={() => setShowAbout(true)}
+            >
+              About
+            </button>
           </div>
+
         </div>
       </div>
 
@@ -425,6 +437,29 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </button>
         </div>
       )}
+
+      {showAbout && (
+        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-6 overflow-y-auto">
+          <h2 className="text-2xl font-bold mb-4">About Crossroads</h2>
+          <p className="mb-4 text-center max-w-xl">
+            Crossroads is an exploration of linguistic flexibility in the form of a puzzle game.<br></br>
+            Partially inspired by the NYT Connections, Crossroads invites players to flex their verbal association skills when sorting Categories.<br></br>
+            With the addition of the Unifier, Crossroads goes a step further, asking players to leverage all of their vocabulary, trivia knowledge, and imagination in order to solve a unique challenge.
+          </p>
+          <p className="mb-4 text-center">
+            Ask questions, make suggestions, or submit your own puzzles at:<br></br>
+            <a href="mailto:crossroads.puzzle.unifier@gmail.com" className="text-blue-600 underline">crossroads.puzzle.unifier@gmail.com</a>
+          </p>
+          <button
+            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            onClick={() => setShowAbout(false)}
+          >
+            Back to Game
+          </button>
+        </div>
+      )}
+
+
     </div>
   );
 }
