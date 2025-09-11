@@ -575,6 +575,34 @@ const puzzles = [
 			{ name: "Fiction Featuring Vampires", terms: ["Blade", "Buffy", "Sinners"] },
 		],
 	},
+	{
+		unifier: "Titan",
+		categories: [
+			{ name: "Something Massive", terms: ["Colossus", "Giant", "Leviathan"] },
+			{ name: "Nissan Models", terms: ["Leaf", "Kicks", "Rogue"] },
+			{ name: "Moons of Saturn", terms: ["Enceladus", "Mimas", "Hyperion"] },
+			{ name: "Member of a Blue NFL Team", terms: ["Lion", "Colt", "Bill"] },
+		],
+	},
+	{
+		unifier: "Thor",
+		categories: [
+			{ name: "Flying Avengers", terms: ["Falcon", "Vision", "Wasp"] },
+			{ name: "Namesakes of Weekdays", terms: ["Sun", "Frigg", "Saturn"] },
+			{ name: "ICBMs Repurposed for Manned Spaceflight", terms: ["Redstone", "Titan", "Atlas"] },
+			{ name: "Pictured Wielding a Hammer", terms: ["John Henry", "Hephaestus", "Fix-It Felix"] },
+		],
+	},
+	{
+		unifier: "Letter",
+		categories: [
+			{ name: "Lexical Symbol", terms: ["Glyph", "Rune", "Character"] },
+			{ name: "Written Message", terms: ["Epistle", "Memo", "Note"] },
+			{ name: "Owner of Rented Property", terms: ["Proprietor", "Lessor", "Landlord"] },
+			{ name: "Scarlet ___", terms: ["Witch", "Pimpernel", "Fever"] },
+		],
+	},
+
   
 ];
 export default puzzles;
