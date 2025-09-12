@@ -141,7 +141,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   {/* Row 2: Navigation */}
   <div className="flex items-center justify-center gap-2">
     <button
-      onClick={() => setCurrentPuzzleIndex(Math.max(currentPuzzleIndex - 1, 0))}
+      onClick={() => resetPuzzle(Math.max(currentPuzzleIndex - 1, 0))}
       className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
     >
       Previous
@@ -155,7 +155,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
         if (e.key === "Enter") {
           const value = parseInt(e.target.value, 10) - 1;
           if (value >= 0 && value < availablePuzzles.length) {
-            setCurrentPuzzleIndex(value);
+            resetPuzzle(value);
             e.target.value = "";
           }
         }
@@ -163,7 +163,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
     />
 
     <button
-      onClick={() => setCurrentPuzzleIndex(Math.min(currentPuzzleIndex + 1, availablePuzzles.length - 1))}
+      onClick={() => resetPuzzle(Math.min(currentPuzzleIndex + 1, availablePuzzles.length - 1))}
       className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
     >
       Next
