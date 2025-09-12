@@ -602,6 +602,33 @@ const puzzles = [
 			{ name: "Scarlet ___", terms: ["Witch", "Pimpernel", "Fever"] },
 		],
 	},
+	{
+		unifier: "Cooper",
+		categories: [
+			{ name: "Cheeses", terms: ["Feta", "Colby", "Brie"] },
+			{ name: "Mini ___", terms: ["Golf", "Fridge", "Skirt"] },
+			{ name: "Involved in Wine Making", terms: ["Cellarmaster", "Sommelier", "Viticulturist"] },
+			{ name: "First Names of Eagles Stars", terms: ["Jalen", "Saquon", "DeVonta"] },
+		],
+	},
+	{
+		unifier: "Pencil",
+		categories: [
+			{ name: "Writing Implements", terms: ["Chalk", "Quill", "Marker"] },
+			{ name: "Iconically Yellow", terms: ["School Bus", "Banana", "Tape Measure"] },
+			{ name: "Types of Skirts", terms: ["Tulip", "Mini", "Mermaid"] },
+			{ name: "Applications of Graphite", terms: ["Neutron Moderator", "Electrode", "Lubricant"] },
+		],
+	},
+	{
+		unifier: "Dodge",
+		categories: [
+			{ name: "___ball Sports", terms: ["Kick", "Soft", "Pickle"] },
+			{ name: "To Avoid", terms: ["Shirk", "Sidestep", "Elude"] },
+			{ name: "Dishonest Ploy", terms: ["Gambit", "Ruse", "Scheme"] },
+			{ name: "Car Companies", terms: ["Ford", "Mini", "Jaguar"] },
+		],
+	},
 
   
 ];
