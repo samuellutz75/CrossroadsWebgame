@@ -629,6 +629,33 @@ const puzzles = [
 			{ name: "Car Companies", terms: ["Ford", "Mini", "Jaguar"] },
 		],
 	},
+	{
+		unifier: "Crash",
+		categories: [
+			{ name: "Wreck", terms: ["Collision", "Pileup", "Accident"] },
+			{ name: "Computer Failure", terms: ["Glitch", "Bug", "Error"] },
+			{ name: "___ Out", terms: ["Pass", "Drop", "Freak"] },
+			{ name: "2000s Best Picture Winners", terms: ["Gladiator", "Chicago", "Return of the King"] },
+		],
+	},
+	{
+		unifier: "Trench",
+		categories: [
+			{ name: "Types of Coats", terms: ["Over", "Pea", "Duffle"] },
+			{ name: "___ Foot", terms: ["Athlete's", "Rabbit's", "Webbed"] },
+			{ name: "Excavated Combat Fortification", terms: ["Foxhole", "Dugout", "Bunker"] },
+			{ name: "Star Wars Admirals", terms: ["Thrawn", "Ackbar", "Holdo"] },
+		],
+	},
+	{
+		unifier: "Ring",
+		categories: [
+			{ name: "Boxing ___", terms: ["Glove", "Day", "Match"] },
+			{ name: "Types of Lights", terms: ["Spot", "Flood", "Strobe"] },
+			{ name: "Illegal Organization", terms: ["Syndicate", "Cartel", "Mob"] },
+			{ name: "Famous Fictional McGuffins", terms: ["Holy Grail", "Tesseract", "Elder Wand"] },
+		],
+	},
 
   
 ];
