@@ -671,7 +671,7 @@ const puzzles = [
 			{ name: "Limit", terms: ["Boundary", "Horizon", "Threshold"] },
 			{ name: "Compact Pickup Trucks", terms: ["Ridgeline", "Tacoma", "Colorado"] },
 			{ name: "Airlines", terms: ["Lufthansa", "Emirates", "Alaska"] },
-			{ name: "___land Regions of Disney Parks", terms: ["Adventure", "Fantasy", "Tomorrow"] },
+			{ name: "Disney's Magic Kingdom ___land Regions", terms: ["Adventure", "Fantasy", "Tomorrow"] },
 		],
 	},
 	{
