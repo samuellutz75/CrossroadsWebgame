@@ -656,6 +656,69 @@ const puzzles = [
 			{ name: "Famous Fictional McGuffins", terms: ["Holy Grail", "Tesseract", "Elder Wand"] },
 		],
 	},
+	{
+		unifier: "Shake",
+		categories: [
+			{ name: "To Shiver", terms: ["Shudder", "Tremble", "Quiver"] },
+			{ name: "Ice Cream Desserts", terms: ["Cone", "Float", "Sundae"] },
+			{ name: "Hand___", terms: ["Kerchief", "Cuffs", "Brake"] },
+			{ name: "Keywords of Taylor Swift Songs", terms: ["Cruel", "Blank", "Anti-Hero"] },
+		],
+	},
+	{
+		unifier: "Frontier",
+		categories: [
+			{ name: "Limit", terms: ["Boundary", "Horizon", "Threshold"] },
+			{ name: "Compact Pickup Trucks", terms: ["Ridgeline", "Tacoma", "Colorado"] },
+			{ name: "Airlines", terms: ["Lufthansa", "Emirates", "Alaska"] },
+			{ name: "___land Regions of Disney Parks", terms: ["Adventure", "Fantasy", "Tomorrow"] },
+		],
+	},
+	{
+		unifier: "Spoon",
+		categories: [
+			{ name: "Scooping Tool", terms: ["Ladle", "Shovel", "Trowel"] },
+			{ name: "To Lie Close Together", terms: ["Snuggle", "Nuzzle", "Cuddle"] },
+			{ name: "Tea___", terms: ["Berry", "Kettle", "Cup"] },
+			{ name: "Used in a Prison Escape", terms: ["Key", "Bribe", "File"] },
+		],
+	},
+	{
+		unifier: "Crop",
+		categories: [
+			{ name: "Photo Editing Actions", terms: ["Rotate", "Filter", "Blur"] },
+			{ name: "___ Top", terms: ["Tube", "Tank", "Halter"] },
+			{ name: "Avian Digestive System", terms: ["Beak", "Gizzard", "Cloaca"] },
+			{ name: "Types of Dusting", terms: ["Fingerprint", "Snow", "Furniture"] },
+		],
+	},
+	{
+		unifier: "Halo",
+		categories: [
+			{ name: "Hollow Circle", terms: ["Ring", "Band", "Hoop"] },
+			{ name: "Associated with Angels", terms: ["Wings", "Harp", "Trumpet"] },
+			{ name: "First Person Shooter Game Franchises", terms: ["Doom", "Destiny", "Battlefield"] },
+			{ name: "Psychological Effects", terms: ["Pygmalion", "Placebo", "Bystander"] },
+		],
+	},
+	{
+		unifier: "Switch",
+		categories: [
+			{ name: "Control Inputs", terms: ["Button", "Dial", "Knob"] },
+			{ name: "Swap", terms: ["Exchange", "Substitute", "Replace"] },
+			{ name: "Railroad Intersection", terms: ["Turnout", "Junction", "Crossover"] },
+			{ name: "___blade", terms: ["Roller", "Razor", "Fan"] },
+		],
+	},
+	{
+		unifier: "Friday",
+		categories: [
+			{ name: "Marvel AI Names", terms: ["Ultron", "Jarvis", "Vision"] },
+			{ name: "Considered Unlucky", terms: ["Corvids ", "13", "Broken Mirror"] },
+			{ name: "Black ___", terms: ["Magic", "Sabbath", "Widow"] },
+			{ name: "Associated with Frigg", terms: ["Marriage", "Odin", "Prophecy"] },
+		],
+	},
 
   
 ];

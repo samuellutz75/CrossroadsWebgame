@@ -14,7 +14,7 @@ const TutorialButton = ({ label }) => (
 
 export default function App() {
   // DAILY PUZZLE RELEASE SYSTEM
-const startDate = new Date("2025-07-01"); // <-- set your chosen start date
+const startDate = new Date("2025-06-01"); // <-- set your chosen start date
 const today = new Date();
 const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
