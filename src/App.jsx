@@ -1,5 +1,9 @@
 import { useState } from "react";
 import puzzles from "./puzzles";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-B5VFMHGF5Z"); // your Measurement ID
+ReactGA.send("pageview");
 
 // Disabled puzzle-style button for tutorial terms
 const TutorialButton = ({ label }) => (

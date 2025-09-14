@@ -353,7 +353,7 @@ const puzzles = [
 	{
 		unifier: "Express",
 		categories: [
-			{ name: "Memphis Semi-Pro Football Teams", terms: ["Showboats", "Southmen", "Maniax"] },
+			{ name: "Polar ___", terms: ["Bear", "Coordinates", "Opposite"] },
 			{ name: "___Way Roads", terms: ["High", "Free", "Park"] },
 			{ name: "To Speak", terms: ["Voice", "Declare", "Convey"] },
 			{ name: "Types of Trains", terms: ["Bullet", "Freight", "Commuter"] },
