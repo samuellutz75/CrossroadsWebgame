@@ -299,6 +299,14 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             >
               About
             </button>
+            <a href="https://ko-fi.com/crossroadspuzzle" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
+                alt="Buy Me a Coffee at ko-fi.com"
+                style={{ height: "40px", width: "auto" }}  // adjust height to match your buttons
+              />
+            </a>
+
           </div>
 
         </div>
