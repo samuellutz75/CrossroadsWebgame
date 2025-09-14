@@ -82,6 +82,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   function handleUnifierSubmit(e) {
     e.preventDefault();
     if (unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()) {
+      ReactGA.event("unifier-solved", {
+        puzzle_id: currentPuzzleIndex + 1,      
+        puzzle_name: puzzle.unifier,   
+      });
       setUnifierSolved(true);
       setFlashWrong(false);
       setGuessHistory([...guessHistory, "✅"]); // log success
@@ -93,6 +97,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   }
 
   async function handleShare() {
+    ReactGA.event("puzzle_shared", {
+      puzzle_id: currentPuzzleIndex + 1,      
+      puzzle_name: puzzle.unifier,   
+    });
     const timeline = guessHistory.join("");
     const text = `Crossroads #${currentPuzzleIndex + 1}: ${timeline}`;
     try {
@@ -106,6 +114,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
 
   function resetPuzzle(index) {
+    ReactGA.event("puzzle_started", {
+      puzzle_id: currentPuzzleIndex + 1,      
+      puzzle_name: puzzle.unifier,   
+    });
     setCurrentPuzzleIndex(index);
     setSelected([]);
     setSolvedCategories([]);
@@ -303,13 +315,6 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             >
               About
             </button>
-            <a href="https://ko-fi.com/crossroadspuzzle" target="_blank" rel="noopener noreferrer">
-              <img
-                src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
-                alt="Buy Me a Coffee at ko-fi.com"
-                style={{ height: "40px", width: "auto" }}  // adjust height to match your buttons
-              />
-            </a>
 
           </div>
 
@@ -462,6 +467,14 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             Ask questions, make suggestions, or submit your own puzzles at:<br></br>
             <a href="mailto:crossroads.puzzle.unifier@gmail.com" className="text-blue-600 underline">crossroads.puzzle.unifier@gmail.com</a>
           </p>
+          <a href="https://ko-fi.com/crossroadspuzzle" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
+                alt="Buy Me a Coffee at ko-fi.com"
+                style={{ height: "40px", width: "auto" }}  // adjust height to match your buttons
+              />
+          </a>
+          <p><br/></p>
           <button
             className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
             onClick={() => setShowAbout(false)}
