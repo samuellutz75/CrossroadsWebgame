@@ -18,12 +18,24 @@ const TutorialButton = ({ label }) => (
 
 export default function App() {
   // DAILY PUZZLE RELEASE SYSTEM
-const startDate = new Date("2025-06-01"); // <-- set your chosen start date
-const today = new Date();
-const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+// LOCAL MIDNIGHT rollover (each user gets new puzzle at their own midnight)
+const msPerDay = 24 * 60 * 60 * 1000;
 
-// Only show as many puzzles as days have passed
-const availablePuzzles = puzzles.slice(0, Math.min(daysSinceStart, puzzles.length));
+// startDate as local midnight: month is 0-indexed (8 = September)
+const startDate = new Date(2025, 8, 11);
+
+// compute full days elapsed between local dates
+function daysBetweenLocal(start, end = new Date()) {
+  const s = new Date(start.getFullYear(), start.getMonth(), start.getDate()); // local midnight of start
+  const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());       // local midnight of today
+  return Math.floor((e - s) / msPerDay);
+}
+
+const daysSinceStart = daysBetweenLocal(startDate);
+
+// include the start day as puzzle #1 (adjust +1 if you want puzzle 1 on startDate)
+const availableCount = Math.min(daysSinceStart + 1, puzzles.length);
+const availablePuzzles = puzzles.slice(0, availableCount);
 
 const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.length - 1);
 
@@ -82,7 +94,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   function handleUnifierSubmit(e) {
     e.preventDefault();
     if (unifierGuess.trim().toLowerCase() === puzzle.unifier.toLowerCase()) {
-      ReactGA.event("unifier-solved", {
+      ReactGA.event("unifier_solved", {
         puzzle_id: currentPuzzleIndex + 1,      
         puzzle_name: puzzle.unifier,   
       });
@@ -127,6 +139,12 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
     setGuessHistory([]);   // reset timeline
   }
 
+  function addDaysLocal(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
   if (!puzzle) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -150,7 +168,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       Crossroads Puzzle {currentPuzzleIndex + 1} of {availablePuzzles.length}
     </p>
     <p className="text-sm text-gray-600">
-      Released: {new Date(startDate.getTime() + (currentPuzzleIndex+1) * 24 * 60 * 60 * 1000).toLocaleDateString()}
+      Released: {addDaysLocal(startDate, currentPuzzleIndex).toLocaleDateString()}
     </p>
   </div>
 
@@ -458,6 +476,11 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       {showAbout && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-6 overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">About Crossroads</h2>
+          <p className="mb-4 text-center max-w-xl">
+          Start date is {""+startDate}<br></br>
+          Current date is {""+today}<br></br>
+          Time between is {""+daysSinceStart}<br></br>
+          </p>
           <p className="mb-4 text-center max-w-xl">
             Crossroads is an exploration of linguistic flexibility in the form of a puzzle game.<br></br>
             Partially inspired by the NYT Connections, Crossroads invites players to flex their verbal association skills when sorting Categories.<br></br>
