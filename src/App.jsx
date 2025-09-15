@@ -477,11 +477,6 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-6 overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">About Crossroads</h2>
           <p className="mb-4 text-center max-w-xl">
-          Start date is {""+startDate}<br></br>
-          Current date is {""+today}<br></br>
-          Time between is {""+daysSinceStart}<br></br>
-          </p>
-          <p className="mb-4 text-center max-w-xl">
             Crossroads is an exploration of linguistic flexibility in the form of a puzzle game.<br></br>
             Partially inspired by the NYT Connections, Crossroads invites players to flex their verbal association skills when sorting Categories.<br></br>
             With the addition of the Unifier, Crossroads goes a step further, asking players to leverage all of their vocabulary, trivia knowledge, and imagination in order to solve a unique challenge.
