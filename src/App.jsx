@@ -419,12 +419,12 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
           <h2 className="text-xl font-semibold mt-6 mb-2">Unifier:</h2>
           <p className="mb-4">
-            Each Crossroads puzzle is built around a single word called the Unifier. This word is not provided to the player. 
-            Instead, they must identify what word exhibits the following behavior: The Unifier fits all Category descriptions simultaneously. 
+            Each Crossroads puzzle is built around a single word called the Unifier. This word is NOT provided to the player, and is NOT one of the 12 Terms.
+            Instead, the player must identify what word exhibits the following behavior: The Unifier fits all Category descriptions simultaneously. 
             If the Unifier were provided as a Term, it could be rationally sorted into any of the 4 Categories.
           </p>
 
-          <p className="mb-2">Unifier Example: <b>ACE</b></p>
+          <p className="mb-2">Unifier Example: <b>The word ACE is the Unifier</b></p>
           <p>An Ace is a Playing Card</p>
           <div className="grid grid-cols-4 w-160 gap-2 mb-4">
             <TutorialButton label="KING" />
