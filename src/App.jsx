@@ -2,6 +2,7 @@ import { useState } from "react";
 import puzzles from "./puzzles";
 import ReactGA from "react-ga4";
 
+
 ReactGA.initialize("G-B5VFMHGF5Z"); // your Measurement ID
 ReactGA.send("pageview");
 
@@ -50,6 +51,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   const [copySuccess, setCopySuccess] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showWin, setShowWin] = useState(false);
 
   
   const puzzle = availablePuzzles[currentPuzzleIndex];
@@ -79,8 +81,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       const categoryIndex = puzzle.categories.findIndex(
         (c) => c.name === match.name
       ) + 1;
-
       setGuessHistory((prevHistory) => [...prevHistory, `${categoryIndex}️⃣`]);
+      if(unifierSolved && solvedCategories.length === 4) {
+        setTimeout(() => setShowWin(true), 1500);
+      }
     } else {
       setWrongSelection(selected);
       setTimeout(() => setWrongSelection([]), 500);
@@ -101,6 +105,9 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       setUnifierSolved(true);
       setFlashWrong(false);
       setGuessHistory([...guessHistory, "✅"]); // log success
+      if(solvedCategories.length === 4) {
+        setTimeout(() => setShowWin(true), 1500);
+      }
     } else {
       setFlashWrong(true);
       setTimeout(() => setFlashWrong(false), 500); // flash for 0.5s
@@ -114,7 +121,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       puzzle_name: puzzle.unifier,   
     });
     const timeline = guessHistory.join("");
-    const text = `Crossroads #${currentPuzzleIndex + 1}: ${timeline}`;
+    const text = `Crossroads #${currentPuzzleIndex + 1}: ${timeline}\nPlay at https://crossroadspuzzle.com`;
     try {
       await navigator.clipboard.writeText(text);
       setCopySuccess(true);
@@ -136,7 +143,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
     setDisabledTerms([]);
     setUnifierGuess("");
     setUnifierSolved(false);
-    setGuessHistory([]);   // reset timeline
+    setGuessHistory([]);
+    setShowWin(false);
+    setShowAbout(false);
+    setShowTutorial(false);
   }
 
   function addDaysLocal(date, days) {
@@ -228,22 +238,25 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
               <button
                 type="submit"
                 disabled={unifierSolved}
-                className="px-3 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+                className="px-3 py-2 bg-blue-500 text-white rounded  hover:bg-blue-600 disabled:opacity-50"
               >
                 Submit
               </button>
               <button
                 type="button"
-                onClick={handleShare}
+                onClick={() => setShowWin(true)}
                 disabled={!(unifierSolved && solvedCategories.length === 4)}
-                className="flex-1 px-3 py-2 bg-green-500 text-white rounded disabled:opacity-50"
+                className="flex-1 px-3 py-2 bg-green-500 text-white rounded  hover:bg-green-600 disabled:opacity-50"
               >
-                Share
+                Share Score
               </button>
 
             </div>
             {unifierSolved && (
               <>
+                {solvedCategories.length === 4 && (
+                  <p className="mt-2 text-green-600 font-bold">Congrats! You Won Today's Crossroads Puzzle! </p>
+                )}
                 <p className="mt-2 text-green-600 font-bold">
                   Correct! The Unifier is {puzzle.unifier}.
                 </p>
@@ -287,7 +300,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
               <button
                 onClick={handleSubmit}
                 disabled={selected.length !== 3}
-                className="px-4 py-2 bg-green-500 text-white rounded disabled:opacity-50"
+                className="px-4 py-2 bg-green-500 text-white rounded  hover:bg-green-600 disabled:opacity-50"
               >
                 Submit Selection
               </button>
@@ -502,6 +515,35 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
         </div>
       )}
 
+      {showWin && (
+        <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                bg-white z-50 flex flex-col items-center justify-center 
+                p-15 rounded shadow w-fit h-fit max-w-[90vw] max-h-[90vh] overflow-y-auto">
+          <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
+          <p className="text-xl font-bold text-center">You Won Crossroads Puzzle #{currentPuzzleIndex + 1}<br></br>Score: {guessHistory.join("")} </p>
+          <button
+            type="button"
+            onClick={handleShare}
+            disabled={!(unifierSolved && solvedCategories.length === 4)}
+            className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          >
+            Share Score
+          </button>
+          <p>
+            {copySuccess && (
+              <p className="mt-2 text-green-600 font-bold">Result Copied!</p>
+            )}
+          </p>
+          <button
+            className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            onClick={() => setShowWin(false)}
+          >
+            Admire Puzzle
+          </button>
+        </div>
+        </div>
+      )}
 
     </div>
   );
