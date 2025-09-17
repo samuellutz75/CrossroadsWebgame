@@ -9,7 +9,7 @@ ReactGA.send("pageview");
 // Disabled puzzle-style button for tutorial terms
 const TutorialButton = ({ label }) => (
   <button
-    className="bg-gray-200 text-black font-bold py-2 px-4 rounded-lg shadow-md cursor-default opacity-70"
+    className="bg-gray-200 text-black text-sm font-bold py-2 px-2 rounded-lg shadow-md cursor-default opacity-70"
     disabled
   >
     {label.toUpperCase()}
@@ -76,13 +76,14 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
     );
 
     if (match && !solvedCategories.includes(match.name)) {
-      setSolvedCategories([...solvedCategories, match.name]);
+      const newSolved = [...solvedCategories, match.name];
+      setSolvedCategories(newSolved);
       setDisabledTerms([...disabledTerms, ...match.terms]);
       const categoryIndex = puzzle.categories.findIndex(
         (c) => c.name === match.name
       ) + 1;
       setGuessHistory((prevHistory) => [...prevHistory, `${categoryIndex}️⃣`]);
-      if(unifierSolved && solvedCategories.length === 4) {
+      if(unifierSolved && newSolved.length === 4) {
         setTimeout(() => setShowWin(true), 1500);
       }
     } else {
@@ -177,7 +178,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
     <p className="text-lg font-bold">
       Crossroads Puzzle {currentPuzzleIndex + 1} of {availablePuzzles.length}
     </p>
-    <p className="text-sm text-gray-600">
+    <p  className="text-md text-gray-600">
+      New Puzzles Every Day!
+    </p>
+    <p className="text-md text-gray-600">
       Released: {addDaysLocal(startDate, currentPuzzleIndex).toLocaleDateString()}
     </p>
   </div>
@@ -294,9 +298,9 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
                 );
               })}
             </div>
-
+            <p className="text-center mt-2 text-md text-gray-600">Create 4 Groups of 3</p>
             {/* Submit button */}
-            <div className="mt-4 flex justify-center">
+            <div className="mt-2 flex justify-center">
               <button
                 onClick={handleSubmit}
                 disabled={selected.length !== 3}
@@ -366,7 +370,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             </p>
 
             <p className="mb-2">Example Term Bank:</p>
-            <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+            <div className="grid grid-cols-3 w-90 gap-2 mb-4">
             <TutorialButton label="CRUSH" />
             <TutorialButton label="HOME DEPOT" />
             <TutorialButton label="JACK" />
@@ -389,7 +393,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
           <p className="mb-2">Example Category:</p>
           <p className="font-semibold">Playing Cards</p>
-          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+          <div className="grid grid-cols-3 w-90 gap-2 mb-4">
             <TutorialButton label="KING" />
             <TutorialButton label="QUEEN" />
             <TutorialButton label="JACK" />
@@ -403,28 +407,28 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
           <p className="mb-2">Completed Category Section:</p>
           <p className="font-semibold">Playing Cards</p>
-          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+          <div className="grid grid-cols-3 w-90 gap-2 mb-4">
             <TutorialButton label="KING" />
             <TutorialButton label="QUEEN" />
             <TutorialButton label="JACK" />
           </div>
 
           <p className="font-semibold">Hardware Store Brands</p>
-          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+          <div className="grid grid-cols-3 w-90 gap-2 mb-4">
             <TutorialButton label="HOME DEPOT" />
             <TutorialButton label="LOWE’S" />
             <TutorialButton label="MENARDS" />
           </div>
 
           <p className="font-semibold">Member of a WNBA Team</p>
-          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+          <div className="grid grid-cols-3 w-90 gap-2 mb-4">
            <TutorialButton label="MYSTIC" />
            <TutorialButton label="SPARK" />
            <TutorialButton label="VALKYRIE" />
           </div>
 
           <p className="font-semibold">To Do Well at Something</p>
-          <div className="grid grid-cols-3 w-120 gap-2 mb-4">
+          <div className="grid grid-cols-3 w-90 gap-2 mb-4">
            <TutorialButton label="NAIL" />
            <TutorialButton label="CRUSH" />
            <TutorialButton label="ROCK" />
@@ -439,7 +443,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
           <p className="mb-2">Unifier Example: <b>The word ACE is the Unifier</b></p>
           <p>An Ace is a Playing Card</p>
-          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+          <div className="grid grid-cols-4 w-120 gap-2 mb-4">
             <TutorialButton label="KING" />
             <TutorialButton label="QUEEN" />
             <TutorialButton label="JACK" />
@@ -447,7 +451,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </div>
 
           <p>Ace Hardware is a Hardware Store Brand</p>
-          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+          <div className="grid grid-cols-4 w-120 gap-2 mb-4">
             <TutorialButton label="HOME DEPOT" />
             <TutorialButton label="LOWE’S" />
             <TutorialButton label="MENARDS" />
@@ -455,7 +459,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </div>
 
           <p>An Ace is a Member of the Las Vegas Aces WNBA Team</p>
-          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+          <div className="grid grid-cols-4 w-120 gap-2 mb-4">
             <TutorialButton label="MYSTIC" />
             <TutorialButton label="SPARK" />
             <TutorialButton label="VALKYRIE" />
@@ -463,7 +467,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </div>
 
           <p>To Ace something is to do well: “I aced that test!”</p>
-          <div className="grid grid-cols-4 w-160 gap-2 mb-4">
+          <div className="grid grid-cols-4 w-120 gap-2 mb-4">
             <TutorialButton label="NAIL" />
             <TutorialButton label="CRUSH" />
             <TutorialButton label="ROCK" />
@@ -487,7 +491,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       )}
 
       {showAbout && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-6 overflow-y-auto">
+        <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                bg-white z-50 flex flex-col items-center justify-center 
+                p-15 rounded shadow w-fit h-fit max-w-[90vw] max-h-[90vh] overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">About Crossroads</h2>
           <p className="mb-4 text-center max-w-xl">
             Crossroads is an exploration of linguistic flexibility in the form of a puzzle game.<br></br>
@@ -512,6 +519,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           >
             Back to Game
           </button>
+        </div>
         </div>
       )}
 
