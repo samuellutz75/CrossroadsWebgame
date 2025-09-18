@@ -49,10 +49,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   const [unifierSolved, setUnifierSolved] = useState(false);
   const [guessHistory, setGuessHistory] = useState([]);
   const [copySuccess, setCopySuccess] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [showWin, setShowWin] = useState(false);
-
+  const [screen, setScreen] = useState("game");
   
   const puzzle = availablePuzzles[currentPuzzleIndex];
   const allTerms = puzzle?.categories
@@ -84,7 +81,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       ) + 1;
       setGuessHistory((prevHistory) => [...prevHistory, `${categoryIndex}️⃣`]);
       if(unifierSolved && newSolved.length === 4) {
-        setTimeout(() => setShowWin(true), 1500);
+        setTimeout(() => setScreen("score"), 1000);
       }
     } else {
       setWrongSelection(selected);
@@ -107,7 +104,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       setFlashWrong(false);
       setGuessHistory([...guessHistory, "✅"]); // log success
       if(solvedCategories.length === 4) {
-        setTimeout(() => setShowWin(true), 1500);
+        setTimeout(() => setScreen("score"), 1000);
       }
     } else {
       setFlashWrong(true);
@@ -145,9 +142,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
     setUnifierGuess("");
     setUnifierSolved(false);
     setGuessHistory([]);
-    setShowWin(false);
-    setShowAbout(false);
-    setShowTutorial(false);
+    setScreen("game");
   }
 
   function addDaysLocal(date, days) {
@@ -165,6 +160,13 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
   }
 
   return (
+    <div className="relative w-full h-full overflow-hidden">
+      
+    <div
+      className={`fixed inset-0 transition-opacity duration-500 ${
+        screen === "game" ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
     <div className="min-h-screen p-4 bg-gray-100">
       {/* Responsive container */}
       <div className="flex flex-col md:flex-row gap-6">
@@ -172,52 +174,52 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
         <div className="flex-1 space-y-4">
           {/* Puzzle Navigator */}
           {/* HEADER */}
-<div className="bg-white p-2 rounded shadow">
-  {/* Row 1: Title + Release Date */}
-  <div className="text-center mb-2">
-    <p className="text-lg font-bold">
-      Crossroads Puzzle {currentPuzzleIndex + 1} of {availablePuzzles.length}
-    </p>
-    <p  className="text-md text-gray-600">
-      New Puzzles Every Day!
-    </p>
-    <p className="text-md text-gray-600">
-      Released: {addDaysLocal(startDate, currentPuzzleIndex).toLocaleDateString()}
-    </p>
-  </div>
+            <div className="bg-white p-2 rounded shadow">
+              {/* Row 1: Title + Release Date */}
+              <div className="text-center mb-2">
+                <p className="text-lg font-bold">
+                  Crossroads Puzzle {currentPuzzleIndex + 1} of {availablePuzzles.length}
+                </p>
+                <p  className="text-md text-gray-600">
+                  New Puzzles Every Day!
+                </p>
+                <p className="text-md text-gray-600">
+                  Released: {addDaysLocal(startDate, currentPuzzleIndex).toLocaleDateString()}
+                </p>
+              </div>
 
-  {/* Row 2: Navigation */}
-  <div className="flex items-center justify-center gap-2">
-    <button
-      onClick={() => resetPuzzle(Math.max(currentPuzzleIndex - 1, 0))}
-      className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
-    >
-      Previous
-    </button>
+              {/* Row 2: Navigation */}
+              <div className="flex items-center justify-center gap-2">
+                <button
+                  onClick={() => resetPuzzle(Math.max(currentPuzzleIndex - 1, 0))}
+                  className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
+                >
+                  Previous
+                </button>
 
-    <input
-      type="number"
-      placeholder="Go to #"
-      className="w-30 px-2 py-1 border rounded text-center"
-      onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          const value = parseInt(e.target.value, 10) - 1;
-          if (value >= 0 && value < availablePuzzles.length) {
-            resetPuzzle(value);
-            e.target.value = "";
-          }
-        }
-      }}
-    />
+                <input
+                  type="number"
+                  placeholder="Go to #"
+                  className="w-30 px-2 py-1 border rounded text-center"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      const value = parseInt(e.target.value, 10) - 1;
+                      if (value >= 0 && value < availablePuzzles.length) {
+                        resetPuzzle(value);
+                        e.target.value = "";
+                      }
+                    }
+                  }}
+                />
 
-    <button
-      onClick={() => resetPuzzle(Math.min(currentPuzzleIndex + 1, availablePuzzles.length - 1))}
-      className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
-    >
-      Next
-    </button>
-  </div>
-</div>
+                <button
+                  onClick={() => resetPuzzle(Math.min(currentPuzzleIndex + 1, availablePuzzles.length - 1))}
+                  className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
 
 
           {/* Unifier input */}
@@ -248,7 +250,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
               </button>
               <button
                 type="button"
-                onClick={() => setShowWin(true)}
+                onClick={() => setScreen("score")}
                 disabled={!(unifierSolved && solvedCategories.length === 4)}
                 className="flex-1 px-3 py-2 bg-green-500 text-white rounded  hover:bg-green-600 disabled:opacity-50"
               >
@@ -264,9 +266,6 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
                 <p className="mt-2 text-green-600 font-bold">
                   Correct! The Unifier is {puzzle.unifier}.
                 </p>
-                {copySuccess && (
-                  <p className="mt-2 text-green-600 font-bold">Result Copied!</p>
-                )}
               </>
             )}
           </form>
@@ -338,7 +337,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             {/* Tutorial Button */}
             <button
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={() => setShowTutorial(true)}
+              onClick={() => setScreen("tutorial")}
             >
               Tutorial
             </button>
@@ -346,7 +345,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             {/* About Button */}
             <button
               className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-              onClick={() => setShowAbout(true)}
+              onClick={() => setScreen("about")}
             >
               About
             </button>
@@ -355,8 +354,15 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
         </div>
       </div>
+      </div>
+      </div>
 
-      {showTutorial && (
+      
+      <div
+        className={`fixed inset-0 transition-opacity duration-500 ${
+          screen === "tutorial" ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-start p-6 overflow-y-auto">
           <h1 className="text-2xl font-bold mb-4">Crossroads Tutorial</h1>
             <p className="mb-4">
@@ -483,14 +489,20 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
           <button
             className="mt-6 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={() => setShowTutorial(false)}
+            onClick={() => setScreen("game")}
           >
             Back to Game
           </button>
         </div>
-      )}
+      </div>
+      
 
-      {showAbout && (
+      
+      <div
+        className={`fixed inset-0 transition-opacity duration-500 ${
+          screen === "about" ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
         <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                 bg-white z-50 flex flex-col items-center justify-center 
@@ -515,15 +527,21 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           <p><br/></p>
           <button
             className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={() => setShowAbout(false)}
+            onClick={() => setScreen("game")}
           >
             Back to Game
           </button>
         </div>
         </div>
-      )}
+      </div>
+      
 
-      {showWin && (
+      
+      <div
+        className={`fixed inset-0 transition-opacity duration-500 ${
+          screen === "score" ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
         <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                 bg-white z-50 flex flex-col items-center justify-center 
@@ -545,13 +563,14 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </p>
           <button
             className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={() => setShowWin(false)}
+            onClick={() => setScreen("game")}
           >
             Admire Puzzle
           </button>
         </div>
         </div>
-      )}
+      </div>
+      
 
     </div>
   );
