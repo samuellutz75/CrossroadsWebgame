@@ -101,10 +101,10 @@ const puzzles = [
 	{
 		unifier: "Odyssey",
 		categories: [
-			{ name: "Christopher Nolan Movies", terms: ["Interstellar", "Prestige", "Memento"] },
 			{ name: "Adventure", terms: ["Journey", "Voyage", "Quest"] },
 			{ name: "Space ___", terms: ["Shuttle", "Heater", "Bar"] },
 			{ name: "Honda Models", terms: ["Civic", "Pilot", "Accord"] },
+			{ name: "Christopher Nolan Movies", terms: ["Interstellar", "Prestige", "Memento"] },
 		],
 	},
 	{
@@ -137,7 +137,7 @@ const puzzles = [
 	{
 		unifier: "Vine",
 		categories: [
-			{ name: "Short Form Social Media", terms: ["Instagram", "TikTok", "Musically"] },
+			{ name: "Short Form Social Media (Present and Former)", terms: ["Instagram", "TikTok", "Musically"] },
 			{ name: "Grape___", terms: ["Shot", "Seed", "Fruit"] },
 			{ name: "Clingy Growths", terms: ["Lichen", "Moss", "Ivy"] },
 			{ name: "Biblical Metaphors for Jesus", terms: ["Cornerstone", "Lamb", "Bread"] },
@@ -146,10 +146,10 @@ const puzzles = [
 	{
 		unifier: "Skeleton",
 		categories: [
-			{ name: "Made Partially out of Calcium", terms: ["Seashell", "Coral", "Limestone"] },
-			{ name: "___ Key", terms: ["Answer", "House", "Low"] },
-			{ name: "Winter Olympic Events", terms: ["Bobsleigh", "Curling", "Hockey"] },
 			{ name: "Rudimentary Structure", terms: ["Scaffold", "Framework", "Outline"] },
+			{ name: "Winter Olympic Events", terms: ["Bobsleigh", "Curling", "Hockey"] },
+			{ name: "___ Key", terms: ["Answer", "House", "Low"] },
+			{ name: "Made Partially out of Calcium", terms: ["Seashell", "Coral", "Limestone"] },
 		],
 	},
 	{
@@ -209,7 +209,7 @@ const puzzles = [
 	{
 		unifier: "Clipper",
 		categories: [
-			{ name: "LA Sports Team", terms: ["King", "Dodger", "Charger"] },
+			{ name: "LA Sports Team Member", terms: ["King", "Dodger", "Charger"] },
 			{ name: "Nail ___", terms: ["Gun", "Biter", "Polish"] },
 			{ name: "Types of Sailing Ships", terms: ["Schooner", "Sloop", "Caravel"] },
 			{ name: "Haircutting Tools", terms: ["Razor", "Shears", "Scissors"] },

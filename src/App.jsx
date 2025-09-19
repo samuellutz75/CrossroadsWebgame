@@ -164,7 +164,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       
     <div
       className={`fixed inset-0 transition-opacity duration-500 ${
-        screen === "game" ? "opacity-100" : "opacity-0 pointer-events-none"
+        screen === "game" ? "opacity-100 pointer-events-auto overflow-y-auto" : "opacity-0 pointer-events-none"
       }`}
     >
     <div className="min-h-screen p-4 bg-gray-100">
@@ -360,7 +360,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       
       <div
         className={`fixed inset-0 transition-opacity duration-500 ${
-          screen === "tutorial" ? "opacity-100" : "opacity-0 pointer-events-none"
+          screen === "tutorial" ? "opacity-100 pointer-events-auto overflow-y-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-start p-6 overflow-y-auto">
@@ -500,7 +500,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       
       <div
         className={`fixed inset-0 transition-opacity duration-500 ${
-          screen === "about" ? "opacity-100" : "opacity-0 pointer-events-none"
+          screen === "about" ? "opacity-100 pointer-events-auto overflow-y-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
@@ -539,7 +539,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       
       <div
         className={`fixed inset-0 transition-opacity duration-500 ${
-          screen === "score" ? "opacity-100" : "opacity-0 pointer-events-none"
+          screen === "score" ? "opacity-100 pointer-events-auto overflow-y-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
