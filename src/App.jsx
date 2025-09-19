@@ -81,7 +81,8 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       ) + 1;
       setGuessHistory((prevHistory) => [...prevHistory, `${categoryIndex}️⃣`]);
       if(unifierSolved && newSolved.length === 4) {
-        setTimeout(() => setScreen("score"), 1000);
+        setTimeout(() => setScreen("null"), 1000);
+        setTimeout(() => setScreen("score"), 1500);
       }
     } else {
       setWrongSelection(selected);
@@ -104,7 +105,8 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       setFlashWrong(false);
       setGuessHistory([...guessHistory, "✅"]); // log success
       if(solvedCategories.length === 4) {
-        setTimeout(() => setScreen("score"), 1000);
+        setTimeout(() => setScreen("null"), 1000);
+        setTimeout(() => setScreen("score"), 500);
       }
     } else {
       setFlashWrong(true);
@@ -250,7 +252,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
               </button>
               <button
                 type="button"
-                onClick={() => setScreen("score")}
+                onClick={() => {
+                  setScreen("null");
+                  setTimeout(() => setScreen("score"), 500);
+                }}
                 disabled={!(unifierSolved && solvedCategories.length === 4)}
                 className="flex-1 px-3 py-2 bg-green-500 text-white rounded  hover:bg-green-600 disabled:opacity-50"
               >
@@ -337,7 +342,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             {/* Tutorial Button */}
             <button
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={() => setScreen("tutorial")}
+              onClick={() => {
+                setScreen("null");
+                setTimeout(() => setScreen("tutorial"), 500);
+              }}
             >
               Tutorial
             </button>
@@ -345,7 +353,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
             {/* About Button */}
             <button
               className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-              onClick={() => setScreen("about")}
+              onClick={() => {
+                setScreen("null");
+                setTimeout(() => setScreen("about"), 500);
+              }}
             >
               About
             </button>
@@ -489,7 +500,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
           <button
             className="mt-6 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={() => setScreen("game")}
+            onClick={() => {
+                setScreen("null");
+                setTimeout(() => setScreen("game"), 500);
+              }}
           >
             Back to Game
           </button>
@@ -527,7 +541,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           <p><br/></p>
           <button
             className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={() => setScreen("game")}
+            onClick={() => {
+                setScreen("null");
+                setTimeout(() => setScreen("game"), 500);
+              }}
           >
             Back to Game
           </button>
@@ -563,7 +580,10 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </p>
           <button
             className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={() => setScreen("game")}
+            onClick={() => {
+                setScreen("null");
+                setTimeout(() => setScreen("game"), 500);
+              }}
           >
             Admire Puzzle
           </button>
