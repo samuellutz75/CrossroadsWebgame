@@ -106,7 +106,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       setGuessHistory([...guessHistory, "✅"]); // log success
       if(solvedCategories.length === 4) {
         setTimeout(() => setScreen("null"), 1000);
-        setTimeout(() => setScreen("score"), 500);
+        setTimeout(() => setScreen("score"), 1500);
       }
     } else {
       setFlashWrong(true);
