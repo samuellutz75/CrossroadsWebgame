@@ -117,12 +117,21 @@ const puzzles = [
 		],
 	},
 	{
+		unifier: "Buffalo",
+		categories: [
+			{ name: "Sauce Flavors", terms: ["BBQ", "Cajun", "Teriyaki"] },
+			{ name: "To Torment", terms: ["Intimidate", "Harass", "Bully"] },
+			{ name: "Water ___", terms: ["Spout", "Soluble", "Bottle"] },
+			{ name: "Featuring Bills", terms: ["Senate", "Duck", "Wallet"] },
+		],
+	},
+	{
 		unifier: "Slack",
 		categories: [
 			{ name: "Communication Apps", terms: ["Discord", "Teams", "Zoom"] },
-			{ name: "___line", terms: ["Base", "Trend", "Pipe"] },
 			{ name: "To be Lazy", terms: ["Idle", "Loaf", "Shirk"] },
 			{ name: "Relaxed", terms: ["Flexible", "Loose", "Easygoing"] },
+			{ name: "___line", terms: ["Base", "Trend", "Pipe"] },
 		],
 	},
 	{
@@ -138,8 +147,8 @@ const puzzles = [
 		unifier: "Vine",
 		categories: [
 			{ name: "Short Form Social Media (Present and Former)", terms: ["Instagram", "TikTok", "Musically"] },
-			{ name: "Grape___", terms: ["Shot", "Seed", "Fruit"] },
 			{ name: "Clingy Growths", terms: ["Lichen", "Moss", "Ivy"] },
+			{ name: "Grape___", terms: ["Shot", "Seed", "Fruit"] },
 			{ name: "Biblical Metaphors for Jesus", terms: ["Cornerstone", "Lamb", "Bread"] },
 		],
 	},
@@ -173,27 +182,27 @@ const puzzles = [
 	{
 		unifier: "Cardinal",
 		categories: [
-			{ name: "Member of MLB Team", terms: ["Yankee", "Padre", "Royal"] },
 			{ name: "Backyard Birdwatching", terms: ["Robin", "Sparrow", "Blue Jay"] },
 			{ name: "Catholic Church Positions", terms: ["Bishop", "Deacon", "Priest"] },
+			{ name: "Member of MLB Team", terms: ["Yankee", "Padre", "Royal"] },
 			{ name: "Synonyms for Main", terms: ["Primary", "Chief", "Principal"] },
 		],
 	},
 	{
 		unifier: "Reception",
 		categories: [
-			{ name: "Statistics for a Wide Receiver (NFL)", terms: ["Drop", "Touchdown", "Target"] },
-			{ name: "-ist Professions", terms: ["Art", "Dent", "Journal"] },
 			{ name: "Internet Access", terms: ["Service", "Signal", "Connection"] },
 			{ name: "Parts of a Wedding", terms: ["Rehearsal", "Ceremony", "Registry"] },
+			{ name: "-ist Professions", terms: ["Art", "Dent", "Journal"] },
+			{ name: "Statistics for a Wide Receiver (NFL)", terms: ["Drop", "Touchdown", "Target"] },
 		],
 	},
 	{
 		unifier: "Charger",
 		categories: [
-			{ name: "Members of Relocated NFL Teams", terms: ["Ram", "Cardinal", "Raider"] },
 			{ name: "American Muscle Cars", terms: ["Camaro", "Challenger", "Mustang"] },
 			{ name: "Might be Plugged into a Laptop", terms: ["Mouse", "Headphones", "Drive"] },
+			{ name: "Members of Relocated NFL Teams", terms: ["Ram", "Cardinal", "Raider"] },
 			{ name: "Lightning ___", terms: ["Bug", "McQueen", "Bolt"] },
 		],
 	},
@@ -203,16 +212,16 @@ const puzzles = [
 			{ name: "Skin Defect", terms: ["Wart", "Pimple", "Freckle"] },
 			{ name: "Burrowing Animal", terms: ["Gopher ", "Badger", "Aardvark"] },
 			{ name: "Someone Comitting Espionage", terms: ["Spy", "Plant", "Informant"] },
-			{ name: "Numerical Quantities", terms: ["Score", "Gross", "Dozen"] },
+			{ name: "Named Quantities", terms: ["Score", "Gross", "Dozen"] },
 		],
 	},
 	{
 		unifier: "Clipper",
 		categories: [
-			{ name: "LA Sports Team Member", terms: ["King", "Dodger", "Charger"] },
+			{ name: "Haircutting Tools", terms: ["Razor", "Shears", "Scissors"] },
 			{ name: "Nail ___", terms: ["Gun", "Biter", "Polish"] },
 			{ name: "Types of Sailing Ships", terms: ["Schooner", "Sloop", "Caravel"] },
-			{ name: "Haircutting Tools", terms: ["Razor", "Shears", "Scissors"] },
+			{ name: "LA Sports Team Member", terms: ["King", "Dodger", "Charger"] },
 		],
 	},
 	{
@@ -228,9 +237,9 @@ const puzzles = [
 		unifier: "Shield",
 		categories: [
 			{ name: "To Defend", terms: ["Protect", "Guard", "Shelter"] },
-			{ name: "Canadian ___", terms: ["Goose", "Flag", "Bacon"] },
-			{ name: "Marvel Comics Factions", terms: ["Hydra", "Aim", "Avengers"] },
 			{ name: "Medieval Combat Equipment", terms: ["Armor", "Sword", "Dagger"] },
+			{ name: "Marvel Comics Factions", terms: ["Hydra", "Aim", "Avengers"] },
+			{ name: "Canadian ___", terms: ["Goose", "Flag", "Bacon"] },
 		],
 	},
 	{
@@ -245,9 +254,9 @@ const puzzles = [
 	{
 		unifier: "Stream",
 		categories: [
-			{ name: "Jet___", terms: ["Lag", "Pack", "Ski"] },
 			{ name: "Flowing Water", terms: ["River", "Creek", "Brook"] },
 			{ name: "Methods of Media Access", terms: ["Broadcast", "Download", "Physical"] },
+			{ name: "Jet___", terms: ["Lag", "Pack", "Ski"] },
 			{ name: "___ of Consciousness", terms: ["Loss", "State", "Level"] },
 		],
 	},
@@ -263,10 +272,10 @@ const puzzles = [
 	{
 		unifier: "Strike",
 		categories: [
+			{ name: "To Hit", terms: ["Smash", "Beat", "Knock"] },
 			{ name: "Bowling Terms", terms: ["Spare", "Double", "Turkey"] },
 			{ name: "Objecting Rally", terms: ["Picket", "Protest", "Demonstration"] },
 			{ name: "Things that Might Come in 3s", terms: ["Musketeer", "Wise Man", "Wish"] },
-			{ name: "To Hit", terms: ["Smash", "Beat", "Knock"] },
 		],
 	},
 	{
@@ -290,10 +299,10 @@ const puzzles = [
 	{
 		unifier: "Match",
 		categories: [
-			{ name: "Things you can Strike", terms: ["Deal", "Chord", "Pose"] },
 			{ name: "Unit of Play", terms: ["Round", "Game", "Set"] },
 			{ name: "Identical Pairs", terms: ["Twin", "Clone", "Copy"] },
 			{ name: "___Box", terms: ["Juke", "Gear", "Lunch"] },
+			{ name: "Things you can Strike", terms: ["Deal", "Chord", "Pose"] },
 		],
 	},
 	{
@@ -308,10 +317,10 @@ const puzzles = [
 	{
 		unifier: "Pound",
 		categories: [
-			{ name: "___Cake", terms: ["Short", "Beef", "Pan"] },
+			{ name: "To Hit", terms: ["Pummel", "Pelt", "Punch"] },
 			{ name: "Units of Weight", terms: ["Carat", "Stone", "Gram"] },
 			{ name: "Currencies", terms: ["Krone", "Yuan", "Peso"] },
-			{ name: "To Hit", terms: ["Pummel", "Pelt", "Punch"] },
+			{ name: "___Cake", terms: ["Short", "Beef", "Pan"] },
 		],
 	},
 	{
@@ -336,27 +345,27 @@ const puzzles = [
 		unifier: "Ford",
 		categories: [
 			{ name: "To Pass Through", terms: ["Navigate", "Traverse", "Cross"] },
+			{ name: "Car Brands", terms: ["Lincoln", "Tesla", "Genesis"] },
 			{ name: "Star Wars Original Trilogy Actors", terms: ["Hamill", "Fisher", "Guinness"] },
 			{ name: "Presidents Who Never Won a Presidential Election", terms: ["Tyler", "Fillmore", "Johnson"] },
-			{ name: "Car Brands", terms: ["Lincoln", "Tesla", "Genesis"] },
 		],
 	},
 	{
 		unifier: "Burn",
 		categories: [
+			{ name: "Damage with Heat", terms: ["Scald", "Sear", "Melt"] },
 			{ name: "Witty Insult", terms: ["Diss", "Roast", "Clapback"] },
 			{ name: "Muscular Discomfort", terms: ["Ache", "Soreness", "Cramp"] },
 			{ name: "___Out", terms: ["Black", "Work", "Sell"] },
-			{ name: "Damage with Heat", terms: ["Scald", "Sear", "Melt"] },
 		],
 	},
 	{
 		unifier: "Express",
 		categories: [
-			{ name: "Polar ___", terms: ["Bear", "Coordinates", "Opposite"] },
-			{ name: "___Way Roads", terms: ["High", "Free", "Park"] },
-			{ name: "To Speak", terms: ["Voice", "Declare", "Convey"] },
 			{ name: "Types of Trains", terms: ["Bullet", "Freight", "Commuter"] },
+			{ name: "To Speak", terms: ["Voice", "Declare", "Convey"] },
+			{ name: "___Way Roads", terms: ["High", "Free", "Park"] },
+			{ name: "Polar ___", terms: ["Bear", "Coordinates", "Opposite"] },
 		],
 	},
 	{
@@ -380,10 +389,10 @@ const puzzles = [
 	{
 		unifier: "Shell",
 		categories: [
+			{ name: "Exterior", terms: ["Skin", "Rind", "Coating"] },
 			{ name: "Destroy with Explosives", terms: ["Bomb", "Strike", "Blast"] },
 			{ name: "Sea___", terms: ["Horse", "Weed", "Foam"] },
 			{ name: "Gas Station Chains", terms: ["Pilot", "Marathon", "Speedway"] },
-			{ name: "Exterior", terms: ["Skin", "Rind", "Coating"] },
 		],
 	},
 	{
@@ -398,28 +407,28 @@ const puzzles = [
 	{
 		unifier: "Pickle",
 		categories: [
-			{ name: "___Ball Sports", terms: ["Basket", "Foot", "Volley"] },
 			{ name: "Tricky Situation", terms: ["Jam", "Mess", "Bind"] },
 			{ name: "Food Preservation Technique", terms: ["Brine", "Salt", "Ferment"] },
+			{ name: "___Ball Sports", terms: ["Basket", "Foot", "Volley"] },
 			{ name: "Things that Might be Spears", terms: ["Britney", "Asparagus", "Polearm"] },
 		],
 	},
 	{
 		unifier: "Tomato",
 		categories: [
+			{ name: "Foods that Grow on Vines", terms: ["Grape", "Cucumber", "Pumpkin"] },
+			{ name: "Burger Toppings", terms: ["Onion", "Cheese", "Lettuce"] },
 			{ name: "Animated Bobs", terms: ["Sponge", "Minion", "Builder"] },
 			{ name: "Iconically Red", terms: ["Fire Truck", "Stop Sign", "Lobster"] },
-			{ name: "Burger Toppings", terms: ["Onion", "Pickle", "Lettuce"] },
-			{ name: "Foods that Grow on Vines", terms: ["Grape", "Cucumber", "Pumpkin"] },
 		],
 	},
 	{
 		unifier: "Crunch",
 		categories: [
-			{ name: "Fictional Captains", terms: ["America", "Hook", "Nemo"] },
 			{ name: "Chocolate Bars", terms: ["Mars", "Snickers", "Heath"] },
 			{ name: "To Bite", terms: ["Munch", "Chomp", "Gnaw"] },
 			{ name: "Urgent Situation", terms: ["Pinch", "Squeeze", "Jam"] },
+			{ name: "Fictional Captains", terms: ["America", "Hook", "Nemo"] },
 		],
 	},
 	{
@@ -443,9 +452,9 @@ const puzzles = [
 	{
 		unifier: "Genesis",
 		categories: [
+			{ name: "Beginning", terms: ["Origin", "Inception", "Birth"] },
 			{ name: "Luxury Car Brands", terms: ["Audi", "Buick", "Porsche"] },
 			{ name: "Old Testament Books", terms: ["Job", "Numbers", "Proverbs"] },
-			{ name: "Beginning", terms: ["Origin", "Inception", "Birth"] },
 			{ name: "Retro Game Consoles", terms: ["Atari", "Dreamcast", "GameCube"] },
 		],
 	},
@@ -453,9 +462,9 @@ const puzzles = [
 		unifier: "Carpenter",
 		categories: [
 			{ name: "Types of Bees", terms: ["Bumble", "Honey", "Stingless"] },
-			{ name: "Titles Jesus Held", terms: ["Healer", "Preacher", "Messiah"] },
 			{ name: "Tradesmen Involved in House Construction", terms: ["Roofer", "Electrician", "Plumber"] },
 			{ name: "Pop Artists", terms: ["Swift", "Grande", "Rodrigo"] },
+			{ name: "Titles Jesus Held", terms: ["Healer", "Preacher", "Messiah"] },
 		],
 	},
 	{
@@ -472,8 +481,8 @@ const puzzles = [
 		categories: [
 			{ name: "Ingredients in a Salad", terms: ["Lettuce", "Tomato", "Carrot"] },
 			{ name: "Rooms to Change In", terms: ["Locker", "Green", "Fitting"] },
-			{ name: "Window ___", terms: ["Sill", "Pane", "Shade"] },
 			{ name: "Wound Coverings", terms: ["Bandage", "Gauze", "Salve"] },
+			{ name: "Window ___", terms: ["Sill", "Pane", "Shade"] },
 		],
 	},
 	{
@@ -515,28 +524,28 @@ const puzzles = [
 	{
 		unifier: "Pike",
 		categories: [
-			{ name: "Polearms", terms: ["Glaive", "Spear", "Halberd"] },
 			{ name: "Fish", terms: ["Bass", "Trout", "Perch"] },
-			{ name: "Turn___", terms: ["Stile", "Table", "Over"] },
+			{ name: "Polearms", terms: ["Glaive", "Spear", "Halberd"] },
 			{ name: "Gymnastics Moves", terms: ["Bridge", "Tuck", "Split"] },
+			{ name: "Turn___", terms: ["Stile", "Table", "Over"] },
 		],
 	},
 	{
 		unifier: "Verse",
 		categories: [
-			{ name: "Uni___", terms: ["Corn", "Cycle", "Fier"] },
-			{ name: "Subdivision of the Bible", terms: ["Testament", "Book", "Chapter"] },
 			{ name: "Parts of a Song", terms: ["Chorus", "Bridge", "Coda"] },
+			{ name: "Subdivision of the Bible", terms: ["Testament", "Book", "Chapter"] },
+			{ name: "Uni___", terms: ["Corn", "Cycle", "Fier"] },
 			{ name: "NFL Defensive Rookie of the Year Winners", terms: ["Parsons", "Bosa", "Lattimore"] },
 		],
 	},
 	{
 		unifier: "Judge",
 		categories: [
-			{ name: "Old Testament Books, Singular", terms: ["Lamentation", "Psalm", "Chronicle"] },
 			{ name: "Roles in a Courtroom", terms: ["Bailiff", "Prosecutor", "Jury"] },
-			{ name: "Recent MLB MVPs", terms: ["Harper", "Ohtani", "Acuña"] },
 			{ name: "Consider", terms: ["Assess", "Evaluate", "Criticize"] },
+			{ name: "Recent MLB MVPs", terms: ["Harper", "Ohtani", "Acuña"] },
+			{ name: "Old Testament Books, Singular", terms: ["Lamentation", "Psalm", "Chronicle"] },
 		],
 	},
 	{
@@ -560,18 +569,18 @@ const puzzles = [
 	{
 		unifier: "Sting",
 		categories: [
-			{ name: "Lord of the Rings Weapon Names", terms: ["Glamdring", "Andúril", "Orcrist"] },
-			{ name: "Types of Rays", terms: ["Manta", "X", "Gamma"] },
-			{ name: "Law Enforcement Operations", terms: ["Sweep", "Raid", "Stakeout"] },
 			{ name: "Sharp Pain", terms: ["Pang", "Twinge", "Prick"] },
+			{ name: "Types of Rays", terms: ["Manta", "X", "Gamma"] },
+			{ name: "Lord of the Rings Weapon Names", terms: ["Glamdring", "Andúril", "Orcrist"] },
+			{ name: "Law Enforcement Operations", terms: ["Sweep", "Raid", "Stakeout"] },
 		],
 	},
 	{
 		unifier: "Twilight",
 		categories: [
 			{ name: "Late Day", terms: ["Evening", "Sunset", "Dusk"] },
-			{ name: "__ Zone", terms: ["Friend", "Time", "Danger"] },
 			{ name: "Ending", terms: ["Finale", "Coda", "Epilogue"] },
+			{ name: "__ Zone", terms: ["Friend", "Time", "Danger"] },
 			{ name: "Fiction Featuring Vampires", terms: ["Blade", "Buffy", "Sinners"] },
 		],
 	},
@@ -608,7 +617,7 @@ const puzzles = [
 			{ name: "Cheeses", terms: ["Feta", "Colby", "Brie"] },
 			{ name: "Mini ___", terms: ["Golf", "Fridge", "Skirt"] },
 			{ name: "Involved in Wine Making", terms: ["Cellarmaster", "Sommelier", "Viticulturist"] },
-			{ name: "First Names of Eagles Stars", terms: ["Jalen", "Saquon", "DeVonta"] },
+			{ name: "Guardians of the Galaxy Actors", terms: ["Pratt", "Bautista", "Diesel"] },
 		],
 	},
 	{
@@ -623,10 +632,10 @@ const puzzles = [
 	{
 		unifier: "Dodge",
 		categories: [
-			{ name: "___ball Sports", terms: ["Kick", "Soft", "Pickle"] },
 			{ name: "To Avoid", terms: ["Shirk", "Sidestep", "Elude"] },
 			{ name: "Dishonest Ploy", terms: ["Gambit", "Ruse", "Scheme"] },
 			{ name: "Car Companies", terms: ["Ford", "Mini", "Jaguar"] },
+			{ name: "___ball Sports", terms: ["Kick", "Soft", "Pickle"] },
 		],
 	},
 	{
@@ -650,9 +659,9 @@ const puzzles = [
 	{
 		unifier: "Ring",
 		categories: [
-			{ name: "Boxing ___", terms: ["Glove", "Day", "Match"] },
 			{ name: "Types of Lights", terms: ["Spot", "Flood", "Strobe"] },
 			{ name: "Illegal Organization", terms: ["Syndicate", "Cartel", "Mob"] },
+			{ name: "Boxing ___", terms: ["Glove", "Day", "Match"] },
 			{ name: "Famous Fictional McGuffins", terms: ["Holy Grail", "Tesseract", "Elder Wand"] },
 		],
 	},
@@ -669,8 +678,8 @@ const puzzles = [
 		unifier: "Frontier",
 		categories: [
 			{ name: "Limit", terms: ["Boundary", "Horizon", "Threshold"] },
-			{ name: "Compact Pickup Trucks", terms: ["Ridgeline", "Tacoma", "Colorado"] },
 			{ name: "Airlines", terms: ["Lufthansa", "Emirates", "Alaska"] },
+			{ name: "Compact Pickup Trucks", terms: ["Ridgeline", "Tacoma", "Colorado"] },
 			{ name: "Disney's Magic Kingdom ___land Regions", terms: ["Adventure", "Fantasy", "Tomorrow"] },
 		],
 	},
@@ -697,7 +706,7 @@ const puzzles = [
 		categories: [
 			{ name: "Hollow Circle", terms: ["Ring", "Band", "Hoop"] },
 			{ name: "Associated with Angels", terms: ["Wings", "Harp", "Trumpet"] },
-			{ name: "First Person Shooter Game Franchises", terms: ["Doom", "Destiny", "Battlefield"] },
+			{ name: "First-Person Shooter Game Franchises", terms: ["Doom", "Destiny", "Battlefield"] },
 			{ name: "Psychological Effects", terms: ["Pygmalion", "Placebo", "Bystander"] },
 		],
 	},
