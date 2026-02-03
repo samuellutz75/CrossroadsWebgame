@@ -728,6 +728,249 @@ const puzzles = [
 			{ name: "Associated with Frigg", terms: ["Marriage", "Odin", "Prophecy"] },
 		],
 	},
+	{
+		unifier: "Cake",
+		categories: [
+			{ name: "Desserts", terms: ["Pudding", "Fudge", "Cannoli"] },
+			{ name: "Slang for Butt", terms: ["Keister", "Tush", "Heinie"] },
+			{ name: "Cover with Hardened Layer", terms: ["Smear", "Crust", "Coat"] },
+			{ name: "Figuratively Easy", terms: ["Picnic", "Breeze", "Cinch"] },
+		],
+	},
+	{
+		unifier: "Superman",
+		categories: [
+			{ name: "Might be Flying", terms: ["Saucer", "Plane", "Bird"] },
+			{ name: "Iconic Fictional Aliens", terms: ["Spock", "Optimus Prime", "The Doctor"] },
+			{ name: "James Gunn Projects", terms: ["Peacemaker", "Suicide Squad", "Guardians of the Galaxy"] },
+			{ name: "Nietzschen Concepts", terms: ["Will to Power", "True World", "Nihilism"] },
+		],
+	},
+	{
+		unifier: "Job",
+		categories: [
+			{ name: "Employment", terms: ["9-to-5", "Career", "Trade"] },
+			{ name: "Old Testament Books", terms: ["Ezra", "Judges", "Numbers"] },
+			{ name: "Nut___", terms: ["Cracker", "Shell", "Meg"] },
+			{ name: "Slang for Robbery", terms: ["Heist", "Caper", "Grift"] },
+		],
+	},
+	{
+		unifier: "Mark",
+		categories: [
+			{ name: "Visible Damage", terms: ["Scar", "Blemish", "Chip"] },
+			{ name: "Card Actions", terms: ["Draw", "Deal", "Shuffle"] },
+			{ name: "Numbered Iterations", terms: ["Opus", "Version", "Model"] },
+			{ name: "Academic Performance Metric", terms: ["Score", "Letter", "Grade"] },
+		],
+	},
+	{
+		unifier: "Bear",
+		categories: [
+			{ name: "Woodland Predators", terms: ["Fox", "Coyote", "Wolf"] },
+			{ name: "To Carry", terms: ["Shoulder", "Endure", "Withstand"] },
+			{ name: "Firearm Actions", terms: ["Aim", "Fire", "Load"] },
+			{ name: "Chicago Pro Athlete", terms: ["Blackhawk", "Cub", "Bull"] },
+		],
+	},
+	{
+		unifier: "Close",
+		categories: [
+			{ name: "Proximate", terms: ["Immediate", "Adjacent", "Nearby"] },
+			{ name: "Personal", terms: ["Intimate", "Familiar", "Friendly"] },
+			{ name: "Door Actions", terms: ["Lock", "Jam", "Knock"] },
+			{ name: "___ Call", terms: ["Collect", "House", "Phone"] },
+		],
+	},
+	{
+		unifier: "Polar",
+		categories: [
+			{ name: "Sparkling Water Brands", terms: ["LaCroix", "Spindrift", "Bubly"] },
+			{ name: "___ Bear", terms: ["Bring To", "Black", "Water"] },
+			{ name: "___ Circle", terms: ["Summoning", "Traffic", "Inner"] },
+			{ name: "Bi___", terms: ["Lingual", "Partisan", "Cycle"] },
+		],
+	},
+	{
+		unifier: "Round",
+		categories: [
+			{ name: "Smooth Shape", terms: ["Bulbous", "Curved", "Annular"] },
+			{ name: "Unit of Play", terms: ["Set", "Game", "Match"] },
+			{ name: "Reduce Precision", terms: ["Truncate", "Simplify", "Compress"] },
+			{ name: "Unit of Ammunition", terms: ["Bullet", "Shell", "Cartridge"] },
+		],
+	},
+	{
+		unifier: "Easy",
+		categories: [
+			{ name: "Requiring Little Exertion", terms: ["Effortless", "Straightforward", "Simple"] },
+			{ name: "Videogame Difficulty", terms: ["Normal", "Peaceful", "Hardcore"] },
+			{ name: "___ Street", terms: ["Elm", "Wall", "Sesame"] },
+			{ name: "\"Slow Down\"", terms: ["Enough", "Stop", "Whoa"] },
+		],
+	},
+	{
+		unifier: "Airplane",
+		categories: [
+			{ name: "Transportation Modes", terms: ["Ferry", "Train", "Bus"] },
+			{ name: "Might have Wings", terms: ["Pegasus", "Hospital", "Menu"] },
+			{ name: "1980s Comedies", terms: ["Spaceballs", "Three Amigos", "Naked Gun"] },
+			{ name: "Paper ___", terms: ["Trail", "Weight", "Cut"] },
+		],
+	},
+	{
+		unifier: "Diamond",
+		categories: [
+			{ name: "Shapes", terms: ["Triangle", "Trapezoid", "Square"] },
+			{ name: "Precious Stones", terms: ["Garnet", "Pearl", "Topaz"] },
+			{ name: "Baseball ___", terms: ["Stadium", "Mitt", "Team"] },
+			{ name: "Blood ___", terms: ["Bank", "Money", "Relative"] },
+		],
+	},
+	{
+		unifier: "Ice",
+		categories: [
+			{ name: "Slang for Jewelry", terms: ["Drip", "Rocks", "Bling"] },
+			{ name: "Slang for Murder", terms: ["Grease", "Snuff", "Pop"] },
+			{ name: "___ Sheet", terms: ["Rap", "Bed", "Excel"] },
+			{ name: "Federal Organizations", terms: ["NASA", "IRS", "DOGE"] },
+		],
+	},
+	{
+		unifier: "Degree",
+		categories: [
+			{ name: "Scope", terms: ["Severity", "Amount", "Extent"] },
+			{ name: "Angular Unit", terms: ["Revolution", "Minute", "Radian"] },
+			{ name: "Qualification", terms: ["Certificate", "License", "Diploma"] },
+			{ name: "Bachelor ___", terms: ["Button", "Pad", "Party"] },
+		],
+	},
+	{
+		unifier: "Quad",
+		categories: [
+			{ name: "Numerical Prefixes", terms: ["Deca", "Penta", "Mono"] },
+			{ name: "Muscles, Colloquially", terms: ["Ab", "Pec", "Glute"] },
+			{ name: "Places on Campus", terms: ["Dining Hall", "Library", "Dormitory"] },
+			{ name: "Types of Bikes", terms: ["Tandem", "Recumbent", "Motor"] },
+		],
+	},
+	{
+		unifier: "Ware",
+		categories: [
+			{ name: "___house", terms: ["Wheel", "Club", "Rough"] },
+			{ name: "Silver___", terms: ["Smith", "Back", "Fish"] },
+			{ name: "Hard___", terms: ["Core", "Wire", "Tack"] },
+			{ name: "Be___", terms: ["Get", "Lie", "Hind"] },
+		],
+	},
+	{
+		unifier: "Smack",
+		categories: [
+			{ name: "Hit", terms: ["Wallop", "Slap", "Strike"] },
+			{ name: "Slang for Drugs", terms: ["Blow", "Speed", "Weed"] },
+			{ name: "Small Amount in Baking", terms: ["Hint", "Touch", "Splash"] },
+			{ name: "Done to a Lip", terms: ["Split", "Purse", "Lick"] },
+		],
+	},
+	{
+		unifier: "Monster",
+		categories: [
+			{ name: "Energy Drinks", terms: ["Bang", "Prime", "Celcius"] },
+			{ name: "Horrible Individual", terms: ["Wretch", "Fiend", "Villain"] },
+			{ name: "___ Truck", terms: ["Pickup", "Semi", "Box"] },
+			{ name: "Pocket ___", terms: ["Lint", "Change", "Knife"] },
+		],
+	},
+	{
+		unifier: "Stick",
+		categories: [
+			{ name: "Penetrate", terms: ["Impale", "Pierce", "Stab"] },
+			{ name: "Hockey Equipment", terms: ["Puck", "Skate", "Helmet"] },
+			{ name: "To Hold To", terms: ["Cling", "Adhere", "Cleave"] },
+			{ name: "___ Bug", terms: ["Stink", "Pill", "Lightning"] },
+		],
+	},
+	{
+		unifier: "Bare",
+		categories: [
+			{ name: "Noticeable", terms: ["Apparent", "Visible", "Naked"] },
+			{ name: "To Display", terms: ["Expose", "Uncover", "Reveal"] },
+			{ name: "Only the Essentials", terms: ["Minimal", "Basic", "Simple"] },
+			{ name: "Might do to Teeth", terms: ["Loosen", "Floss", "Brush"] },
+		],
+	},
+	{
+		unifier: "Wax",
+		categories: [
+			{ name: "Hair Removal Methods", terms: ["Pluck", "Shave", "Laser"] },
+			{ name: "Reduce Friction", terms: ["Grease", "Lubricate", "Slick"] },
+			{ name: "Associated with Bees", terms: ["Queen", "Comb", "Honey"] },
+			{ name: "Things the Moon Might Do", terms: ["Rise", "Eclipse", "Wane"] },
+		],
+	},
+	{
+		unifier: "Plain",
+		categories: [
+			{ name: "Unadorned", terms: ["Drab", "Tasteless", "Ordinary"] },
+			{ name: "Flat Grassland", terms: ["Steppe", "Prairie", "Savanna"] },
+			{ name: "Simple", terms: ["Evident", "Obvious", "Straightforward"] },
+			{ name: "Might be Jane", terms: ["Eyre", "Doe", "Goodall"] },
+		],
+	},
+	{
+		unifier: "Level",
+		categories: [
+			{ name: "Flat", terms: ["Flush", "Smooth", "Even"] },
+			{ name: "Completely Destroy", terms: ["Demolish", "Raze", "Pulverize"] },
+			{ name: "Vertical Graduations", terms: ["Step", "Floor", "Tier"] },
+			{ name: "Woodworking Tools", terms: ["Vise", "Drill", "Square"] },
+		],
+	},
+	{
+		unifier: "X",
+		categories: [
+			{ name: "Social Media", terms: ["Instagram", "Bluesky", "Tumblr"] },
+			{ name: "On a Treasure Map", terms: ["Compass Rose", "Legend", "Landmarks"] },
+			{ name: "Associated with 10", terms: ["Dime", "Commandments", "Rating Scale"] },
+			{ name: "___ Files", terms: ["Case", "Nail", "Epstein"] },
+		],
+	},
+	{
+		unifier: "Combine",
+		categories: [
+			{ name: "To Put Together", terms: ["Unite", "Join", "Mix"] },
+			{ name: "Farm Vehicles", terms: ["Backhoe", "Baler", "Tractor"] },
+			{ name: "Harvesting Tools", terms: ["Sickle", "Pitchfork", "Scythe"] },
+			{ name: "Valve Videogame Enemies", terms: ["Terrorists", "Zombies", "GLaDOS"] },
+		],
+	},
+	{
+		unifier: "Bug",
+		categories: [
+			{ name: "Irritate", terms: ["Irk", "Tease", "Annoy"] },
+			{ name: "Unintended Behavior", terms: ["Malfunction", "Error", "Glitch"] },
+			{ name: "Stomach ___", terms: ["Ulcer", "Lining", "Acid"] },
+			{ name: "Love___", terms: ["Bird", "Struck", "Seat"] },
+		],
+	},
+	{
+		unifier: "Comb",
+		categories: [
+			{ name: "Hair Styling Tools", terms: ["Curler", "Clippers", "Brush"] },
+			{ name: "Search", terms: ["Scour", "Rummage", "Rifle"] },
+			{ name: "Honey ___", terms: ["Mustard", "Bunch", "Bee"] },
+			{ name: "Beach___", terms: ["Ball", "Goer", "Front"] },
+		],
+	},
+	{
+		unifier: "Negative",
+		categories: [
+			{ name: "Not Nice", terms: ["Bleak", "Pessimistic", "Mean"] },
+			{ name: "Number Sets", terms: ["Natural", "Rational", "Complex"] },
+			{ name: "Photography Terms", terms: ["Aperture", "Develop", "Polaroid"] },
+			{ name: "___ Space", terms: ["Liminal", "Deep", "Outer"] },
+		],
+	},
 
   
 ];

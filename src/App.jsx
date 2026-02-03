@@ -23,7 +23,7 @@ export default function App() {
 const msPerDay = 24 * 60 * 60 * 1000;
 
 // startDate as local midnight: month is 0-indexed (8 = September)
-const startDate = new Date(2025, 8, 11);
+const startDate = new Date(2025, 9, 17);
 
 // compute full days elapsed between local dates
 function daysBetweenLocal(start, end = new Date()) {
