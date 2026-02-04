@@ -971,6 +971,78 @@ const puzzles = [
 			{ name: "___ Space", terms: ["Liminal", "Deep", "Outer"] },
 		],
 	},
+	{
+		unifier: "Scrub",
+		categories: [
+			{ name: "Abrasively Clean", terms: ["Burnish", "Scour", "Buff"] },
+			{ name: "To Call Off", terms: ["Cancel", "Abort", "Scrap"] },
+			{ name: "___ Brush", terms: ["Toilet", "Dry", "Wire"] },
+			{ name: "Slang for a Bad Gamer", terms: ["Noob", "Bot", "Rookie"] },
+		],
+	},
+	{
+		unifier: "Wing",
+		categories: [
+			{ name: "Avian Anatomy", terms: ["Beak", "Talon", "Feather"] },
+			{ name: "Building Section", terms: ["Addition", "Block", "Pod"] },
+			{ name: "Produces Lift", terms: ["Helium", "Propeller", "Rocket"] },
+			{ name: "Buffalo", terms: ["Bill", "Soldier", "Sauce"] },
+		],
+	},
+	{
+		unifier: "Rocky",
+		categories: [
+			{ name: "Doubtful", terms: ["Fickle", "Erratic", "Precarious"] },
+			{ name: "___ Mountains", terms: ["Blue Ridge", "Ural", "Appalachian"] },
+			{ name: "___ Road", terms: ["Country", "Abbey", "High"] },
+			{ name: "Sports Underdogs Movies", terms: ["Seabiscuit", "Rudy", "Moneyball"] },
+		],
+	},
+	{
+		unifier: "Club",
+		categories: [
+			{ name: "___ Soda", terms: ["Baking", "Cream", "Diet"] },
+			{ name: "Bat", terms: ["Cudgel", "Truncheon", "Baton"] },
+			{ name: "Social Group", terms: ["Clique", "Society", "Association"] },
+			{ name: "___ Sandwich", terms: ["Reuben", "Submarine", "Cuban"] },
+		],
+	},
+	{
+		unifier: "Grease",
+		categories: [
+			{ name: "Murder", terms: ["Ice", "Eliminate", "Dispatch"] },
+			{ name: "Hair Styling Products", terms: ["Pomade", "Gel", "Mousse"] },
+			{ name: "___ Fire", terms: ["Brush", "Dumpster", "Forest"] },
+			{ name: "Food Waste", terms: ["Trimmings", "Husks", "Pulp"] },
+		],
+	},
+	{
+		unifier: "Steam",
+		categories: [
+			{ name: "Suspended Water", terms: ["Vapor", "Mist", "Fog"] },
+			{ name: "Cooking Methods", terms: ["Bake", "Fry", "Smoke"] },
+			{ name: "Stew in Anger", terms: ["Seethe", "Fume", "Chafe"] },
+			{ name: "Ways to get Games", terms: ["Epic", "XBox", "Piracy"] },
+		],
+	},
+	{
+		unifier: "Thumb",
+		categories: [
+			{ name: "Green ___", terms: ["Tea", "Bean", "Screen"] },
+			{ name: "Flip through Pages", terms: ["Riffle", "Leaf", "Skim"] },
+			{ name: "___nail", terms: ["Door", "Hang", "Toe"] },
+			{ name: "Grasping Anatomy", terms: ["Trunk", "Tentacle", "Tail"] },
+		],
+	},
+	{
+		unifier: "School",
+		categories: [
+			{ name: "Teach", terms: ["Tutor", "Instruct", "Educate"] },
+			{ name: "___ Bus", terms: ["Double-Decker", "Charter", "Articulated"] },
+			{ name: "Group of Animals", terms: ["Herd", "Flock", "Colony"] },
+			{ name: "Might be Elementary", terms: ["Periodic Table", "Fundamentals", "\"my dear Watson\""] },
+		],
+	},
 
   
 ];

@@ -24,6 +24,7 @@ const msPerDay = 24 * 60 * 60 * 1000;
 
 // startDate as local midnight: month is 0-indexed (8 = September)
 const startDate = new Date(2025, 10, 15);
+//const startDate = new Date(2024, 10, 15);
 
 // compute full days elapsed between local dates
 function daysBetweenLocal(start, end = new Date()) {
@@ -86,7 +87,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
       }
     } else {
       setWrongSelection(selected);
-      setTimeout(() => setWrongSelection([]), 500);
+      setTimeout(() => setWrongSelection([]), 750);
       setGuessHistory((prevHistory) => [...prevHistory, "⬜"]);
     }
     
@@ -169,14 +170,14 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
         screen === "game" ? "opacity-100 pointer-events-auto overflow-y-auto" : "opacity-0 pointer-events-none"
       }`}
     >
-    <div className="min-h-screen p-4 bg-gray-100">
+    <div className="min-h-screen p-3 bg-zinc-700">
       {/* Responsive container */}
       <div className="flex flex-col md:flex-row gap-6">
         {/* Section 1: Navigator + Unifier + Grid */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-3">
           {/* Puzzle Navigator */}
           {/* HEADER */}
-            <div className="bg-white p-2 rounded shadow">
+            <div className="border-4 border-blue-400 bg-white text-black p-1 rounded shadow">
               {/* Row 1: Title + Release Date */}
               <div className="text-center mb-2">
                 <p className="text-lg font-bold">
@@ -227,7 +228,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           {/* Unifier input */}
           <form
             onSubmit={handleUnifierSubmit}
-            className="bg-white p-3 rounded shadow"
+            className="border-4 border-green-500 bg-white p-3 rounded shadow"
           >
             {/*
             <label className="block mb-2 font-semibold">Unifier:</label>
@@ -246,7 +247,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
               <button
                 type="submit"
                 disabled={unifierSolved}
-                className="px-3 py-2 bg-blue-500 text-white rounded  hover:bg-blue-600 disabled:opacity-50"
+                className="px-3 py-2 bg-green-500 text-white rounded  hover:bg-green-600 disabled:opacity-50"
               >
                 Submit
               </button>
@@ -257,7 +258,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
                   setTimeout(() => setScreen("score"), 500);
                 }}
                 disabled={!(unifierSolved && solvedCategories.length === 4)}
-                className="flex-1 px-3 py-2 bg-green-500 text-white rounded  hover:bg-green-600 disabled:opacity-50"
+                className="flex-1 px-3 py-2 bg-blue-500 text-white rounded  hover:bg-blue-600 disabled:opacity-50"
               >
                 Share Score
               </button>
@@ -276,7 +277,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           </form>
 
           {/* 3×4 Button Grid */}
-          <div className="bg-white p-3 rounded shadow ">
+          <div className="border-4 border-yellow-400 bg-gray-200 p-3 rounded shadow ">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {allTerms.map((term) => {
                 const isSelected = selected.includes(term);
@@ -286,15 +287,16 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
                     key={term}
                     onClick={() => toggleSelect(term)}
                     disabled={isDisabled}
-                    className={`h-20 rounded shadow text-center flex items-center justify-center border transition-colors duration-300
+                    className={`h-20 rounded shadow text-center flex items-center justify-center border-4 transition-colors duration-300
                       ${
                         isDisabled
-                          ? "bg-gray-300 text-gray-500"
+                          ? "border-zinc-400 bg-zinc-300 text-gray-500"
                           : wrongSelection.includes(term)
-                          ? "bg-red-400 text-white"
+                          ? "border-red-700 bg-red-500 text-white"
                           : isSelected
-                          ? "bg-blue-400 text-white"
-                          : "bg-white"
+                          ? "border-yellow-400 bg-amber-200"
+                          : "border-yellow-200 bg-yellow-100 text-gray-600"
+
                       }`}
                   >
                     {term.toUpperCase()}
@@ -319,7 +321,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
         {/* Section 2: Categories */}
         <div className="flex-1 space-y-4">
           {puzzle.categories.map((cat, idx) => (
-            <div key={idx} className="bg-white p-3 rounded shadow">
+            <div key={idx} className="border-4 border-green-500 bg-gray-200 p-3 rounded shadow">
               <div className="font-bold mb-2">
                 {solvedCategories.includes(cat.name) ? cat.name : "???"}
               </div>
@@ -327,7 +329,12 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
                 {cat.terms.map((term) => (
                   <button
                     key={term}
-                    className="flex-1 h-12 bg-gray-200 rounded disabled:opacity-50"
+                    className={`flex-1 h-12  rounded disabled:opacity-100 
+                      ${
+                        disabledTerms.includes(term) 
+                          ? "border-4 border-green-600 bg-green-500 text-white"
+                          : "bg-white"
+                      }`}
                     disabled
                   >
                     {disabledTerms.includes(term) ? term.toUpperCase() : "?"}
@@ -352,7 +359,7 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
 
             {/* About Button */}
             <button
-              className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
               onClick={() => {
                 setScreen("null");
                 setTimeout(() => setScreen("about"), 500);
@@ -559,9 +566,9 @@ const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(availablePuzzles.le
           screen === "score" ? "opacity-100 pointer-events-auto overflow-y-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="fixed inset-0 bg-gray-100 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
+        <div className="fixed inset-0 bg-zinc-600 z-50 flex flex-col items-center justify-center p-6 overflow-y-auto rounded shadow">
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                bg-white z-50 flex flex-col items-center justify-center 
+                border-7 border-green-500 bg-zinc-200 z-50 flex flex-col items-center justify-center 
                 p-15 rounded shadow w-fit h-fit max-w-[90vw] max-h-[90vh] overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
           <p className="text-xl font-bold text-center">You Won Crossroads Puzzle #{currentPuzzleIndex + 1}<br></br>Score: {guessHistory.join("")} </p>
