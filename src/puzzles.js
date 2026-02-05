@@ -742,7 +742,7 @@ const puzzles = [
 		categories: [
 			{ name: "Might be Flying", terms: ["Saucer", "Plane", "Bird"] },
 			{ name: "Iconic Fictional Aliens", terms: ["Spock", "Optimus Prime", "The Doctor"] },
-			{ name: "James Gunn Projects", terms: ["Peacemaker", "Suicide Squad", "Guardians of the Galaxy"] },
+			{ name: "James Gunn Projects", terms: ["Peacemaker", "The Suicide Squad", "Guardians of the Galaxy"] },
 			{ name: "Nietzschen Concepts", terms: ["Will to Power", "True World", "Nihilism"] },
 		],
 	},
@@ -1041,6 +1041,33 @@ const puzzles = [
 			{ name: "___ Bus", terms: ["Double-Decker", "Charter", "Articulated"] },
 			{ name: "Group of Animals", terms: ["Herd", "Flock", "Colony"] },
 			{ name: "Might be Elementary", terms: ["Periodic Table", "Fundamentals", "\"my dear Watson\""] },
+		],
+	},
+	{
+		unifier: "Straw",
+		categories: [
+			{ name: "Animal Feed", terms: ["Hay", "Silage", "Grass"] },
+			{ name: "Fluid Tube", terms: ["Hose", "Pipe", "Capillary"] },
+			{ name: "___berry", terms: ["Blue", "Rasp", "Elder"] },
+			{ name: "Last ___", terms: ["Rites", "Resort", "Laugh"] },
+		],
+	},
+	{
+		unifier: "String",
+		categories: [
+			{ name: "Thread", terms: ["Fiber", "Filament", "Strand"] },
+			{ name: "Continuation", terms: ["Sequence", "Chain", "Series"] },
+			{ name: "___ Bean", terms: ["Jelly", "Kidney", "Lima"] },
+			{ name: "___ Theory", terms: ["Big Bang", "Conspiracy", "Game"] },
+		],
+	},
+	{
+		unifier: "Stroke",
+		categories: [
+			{ name: "Brain Damage", terms: ["Concussion", "Aneurysm", "Hematoma"] },
+			{ name: "Heat ___", terms: ["Wave", "Index", "Lamp"] },
+			{ name: "Back___", terms: ["Ground", "Fire", "Pedal"] },
+			{ name: "Engine Specs", terms: ["Bore", "Firing Order", "Displacement"] },
 		],
 	},
 
