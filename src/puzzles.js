@@ -788,7 +788,7 @@ const puzzles = [
 			{ name: "Sparkling Water Brands", terms: ["LaCroix", "Spindrift", "Bubly"] },
 			{ name: "___ Bear", terms: ["Bring To", "Black", "Water"] },
 			{ name: "___ Circle", terms: ["Summoning", "Traffic", "Inner"] },
-			{ name: "Bi___", terms: ["Lingual", "Partisan", "Cycle"] },
+			{ name: "Bi___", terms: ["Lingual", "Partisan", "Nary"] },
 		],
 	},
 	{
