@@ -1070,6 +1070,43 @@ const puzzles = [
 			{ name: "Engine Specs", terms: ["Bore", "Firing Order", "Displacement"] },
 		],
 	},
+	{
+		unifier: "Pipe",
+		categories: [
+			{ name: "Path for Fluid", terms: ["Channel", "Conduit", "Tube"] },
+			{ name: "Used to Smoke", terms: ["Cigar", "Bong", "Hookah"] },
+			{ name: "Type of Bomb", terms: ["Stink", "Smoke", "Time"] },
+			{ name: "___line", terms: ["Coast", "Blood", "Hair"] },
+		],
+	},
+	{
+		unifier: "Spring",
+		categories: [
+			{ name: "Jump", terms: ["Leap", "Bounce", "Hop"] },
+			{ name: "Water Source", terms: ["Well", "Aquifer", "Geyser"] },
+			{ name: "Mattress Construction", terms: ["Foam", "Latex", "Gel"] },
+			{ name: "___ Roll", terms: ["Dinner", "Cinnamon", "Barrel"] },
+		],
+	},
+	{
+		unifier: "Crack",
+		categories: [
+			{ name: "Narrow Break", terms: ["Fissure", "Split", "Rift"] },
+			{ name: "To Figure Out", terms: ["Solve", "Decode", "Unravel"] },
+			{ name: "Egg Actions", terms: ["Poach", "Whisk", "Fry"] },
+			{ name: "Drug Slang", terms: ["Dope", "Speed", "Pot"] },
+		],
+	},
+	{
+		unifier: "Pitch",
+		categories: [
+			{ name: "Throw", terms: ["Toss", "Fling", "Hurl"] },
+			{ name: "Degree of Ascent", terms: ["Slope", "Incline", "Grade"] },
+			{ name: "Business Proposition", terms: ["Proposal", "Presentation", "Offer"] },
+			{ name: "Viscous Black Substance", terms: ["Tar", "Bitumen", "Asphalt"] },
+		],
+	},
+
 
   
 ];
