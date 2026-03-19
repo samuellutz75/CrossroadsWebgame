@@ -1106,6 +1106,34 @@ const puzzles = [
 			{ name: "Viscous Black Substance", terms: ["Tar", "Bitumen", "Asphalt"] },
 		],
 	},
+	{
+		unifier: "Drift",
+		categories: [
+			{ name: "Move Aimlessly", terms: ["Stray", "Wander", "Rove"] },
+			{ name: "Car Move", terms: ["Donut", "Wheelie", "Burnout"] },
+			{ name: "___wood", terms: ["Holly", "Ply", "Hard"] },
+			{ name: "Snow___", terms: ["Mobile", "Plow", "Shoe"] },
+		],
+	},
+	{
+		unifier: "Rash",
+		categories: [
+			{ name: "Without Caution", terms: ["Reckless", "Impulsive", "Hasty"] },
+			{ name: "Skin Irritations", terms: ["Welt", "Sore", "Blister"] },
+			{ name: "Many", terms: ["Spate", "Slew", "Profusion"] },
+			{ name: "Road ___", terms: ["Rage", "Trip", "Sign"] },
+		],
+	},
+	{
+		unifier: "Channel",
+		categories: [
+			{ name: "Direct", terms: ["Guide", "Route", "Funnel"] },
+			{ name: "TV Outlet", terms: ["Network", "Station", "Broadcast"] },
+			{ name: "Waterway", terms: ["Strait", "Pass", "Sound"] },
+			{ name: "Summon", terms: ["Evoke", "Conjure", "Manifest"] },
+		],
+	},
+
 
 
   
